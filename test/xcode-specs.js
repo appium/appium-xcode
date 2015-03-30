@@ -39,5 +39,5 @@ describe('xcode @skip-linux', () => {
     let suffix = ".tracetemplate";
     path.slice(-suffix.length).should.equal(suffix);
   });
-  
+
 });
