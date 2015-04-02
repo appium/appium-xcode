@@ -31,6 +31,30 @@ describe('xcode @skip-linux', () => {
     /\d\.\d\.*\d*/.test(version).should.be.true;
   });
 
+  it('should get the path and version again, these values are cached', async function () {
+
+    await xcode.getPath();
+    await xcode.getVersion();
+
+    let before = new Date();
+    let path = await xcode.getPath();
+    let after = new Date();
+
+    should.exist(path);
+    await fileExists(path);
+    (after-before).should.be.at.most(2);
+
+    before = new Date();
+    let version = await xcode.getVersion();
+    after = new Date();
+
+    should.exist(version);
+    _.isString(version).should.be.true;
+    /\d\.\d\.*\d*/.test(version).should.be.true;
+    (after-before).should.be.at.most(2);
+
+  });
+
   it('should find the automation trace template', async () => {
     let path = await xcode.getAutomationTraceTemplatePath();
 
