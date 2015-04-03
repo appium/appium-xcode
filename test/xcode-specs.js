@@ -64,4 +64,12 @@ describe('xcode @skip-linux', () => {
     path.slice(-suffix.length).should.equal(suffix);
   });
 
+  it('should get max iOS SDK version', async() => {
+    let version = await xcode.getMaxIOSSDK();
+
+    should.exist(version);
+    (typeof version).should.equal('string');
+    (parseFloat(version)-6.1).should.be.at.least(0);
+  });
+
 });
