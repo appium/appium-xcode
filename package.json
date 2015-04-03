@@ -25,6 +25,7 @@
   "dependencies": {
     "appium-support": "^1.0.0",
     "appium-transpile-runtime": "^0.0.4",
+    "asyncbox": "^1.0.9",
     "chai": "^2.1.2",
     "chai-as-promised": "^4.3.0",
     "denodeify": "^1.2.1",
