@@ -55,6 +55,17 @@ describe('xcode @skip-linux', () => {
 
   });
 
+  it('should clear the cache if asked to', async function () {
+
+    xcode.clearInternalCache();
+
+    let before = new Date();
+    await xcode.getPath();
+    let after = new Date();
+    (after-before).should.be.at.least(7);
+
+  });
+
   it('should find the automation trace template', async () => {
     let path = await xcode.getAutomationTraceTemplatePath();
 
