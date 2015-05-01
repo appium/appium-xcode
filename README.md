@@ -35,13 +35,12 @@ returns a path to the default AutomationTraceTemplate
 same as `getAutomationTraceTemplatePath()` but without retry or memoization.
 
 ### getMaxIOSSDK([num_retries])
-_deprecated_ - use `getVersion()` instead.
 *memoized*, *retry*
 
-returns largest IOS SDK version supported by Xcode
+returns largest IOS SDK version supported by Xcode.
+eg: `'8.3'`
 
 ### getMaxIOSSDKWithoutRetry()
-_deprecated_ - use `getVersion()` instead.
 
 same as `getMaxIOSDK()` but without retry or memoization
 
