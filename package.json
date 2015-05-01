@@ -29,6 +29,7 @@
     "denodeify": "^1.2.1",
     "lodash": "^3.6.0",
     "npmlog": "^1.2.0",
+    "plist": "^1.1.0",
     "q": "^1.2.0",
     "source-map-support": "^0.2.10"
   },

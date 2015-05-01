@@ -83,4 +83,10 @@ describe('xcode @skip-linux', () => {
     (parseFloat(version)-6.1).should.be.at.least(0);
   });
 
+  it('should get a list of iOS devices', async() => {
+    let devices = await xcode.getConnectedDevices();
+    should.exist(devices);
+    (typeof devices).should.equal('object');
+  });
+
 });
