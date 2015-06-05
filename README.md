@@ -1,8 +1,14 @@
 appium-xcode
 ===================
+[![NPM version](http://img.shields.io/npm/v/appium-xcode.svg)](https://npmjs.org/package/appium-xcode) 
+[![Downloads](http://img.shields.io/npm/dm/appium-xcode.svg)](https://npmjs.org/package/appium-xcode)
+[![Dependency Status](https://david-dm.org/appium/appium-xcode.svg)](https://david-dm.org/appium/appium-xcode)
+[![devDependency Status](https://david-dm.org/appium/appium-xcode/dev-status.svg)](https://david-dm.org/appium/appium-xcode#info=devDependencies)
 
 ES7 module for interacting with Xcode and Xcode-related functions.
 Used by [Appium](github.com/appium/appium)
+
+[![Build Status](https://travis-ci.org/appium/appium-xcode.svg?branch=master)](https://travis-ci.org/appium/appium-xcode)
 
 API
 ===
