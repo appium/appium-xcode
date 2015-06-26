@@ -31,7 +31,8 @@
     "npmlog": "^1.2.0",
     "plist": "^1.1.0",
     "q": "^1.2.0",
-    "source-map-support": "^0.2.10"
+    "source-map-support": "^0.2.10",
+    "teen_process": "^1.1.0"
   },
   "scripts": {
     "prepublish": "gulp prepublish",

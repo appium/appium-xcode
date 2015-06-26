@@ -89,4 +89,12 @@ describe('xcode @skip-linux', () => {
     (typeof devices).should.equal('object');
   });
 
+  it('should get the path to instruments binary', async() => {
+    let instrumentsPath = await xcode.getInstrumentsPath();
+
+    should.exist(instrumentsPath);
+    (typeof instrumentsPath).should.equal('string');
+    instrumentsPath.length.should.be.above(3);
+    await fileExists(instrumentsPath);
+  });
 });
