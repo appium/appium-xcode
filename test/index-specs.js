@@ -7,7 +7,7 @@ import 'mochawait';
 chai.should();
 
 describe('index', () => {
-  it.only('exported objects should exist', () => {
+  it('exported objects should exist', () => {
     xcode.should.exist;
   });
 });
