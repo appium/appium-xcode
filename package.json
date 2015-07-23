@@ -4,7 +4,7 @@
   "keywords": [
     "appium"
   ],
-  "version": "2.0.5",
+  "version": "2.1.0-beta",
   "author": "appium",
   "license": "Apache License 2.0",
   "repository": {
@@ -17,21 +17,21 @@
   "engines": [
     "node"
   ],
-  "main": "./build/lib/xcode.js",
+  "main": "./build/index.js",
   "bin": {},
   "directories": {
     "lib": "lib"
   },
   "dependencies": {
-    "appium-support": "^1.0.0",
+    "appium-support": "beta",
     "asyncbox": "^2.0.2",
-    "babel-runtime": "5.5.5",
+    "babel-runtime": "=5.6.16",
     "denodeify": "^1.2.1",
     "lodash": "^3.6.0",
     "npmlog": "^1.2.0",
     "plist": "^1.1.0",
     "q": "^1.2.0",
-    "source-map-support": "^0.2.10",
+    "source-map-support": "^0.3.2",
     "teen_process": "^1.1.0"
   },
   "scripts": {
@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "appium-gulp-plugins": "^1.0.3",
-    "chai": "^2.2.0",
-    "chai-as-promised": "^4.3.0",
+    "chai": "^3.1.0",
+    "chai-as-promised": "^5.1.0",
     "gulp": "^3.8.10",
     "mochawait": "^2.0.0"
   }

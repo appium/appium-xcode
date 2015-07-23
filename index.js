@@ -1,4 +1,3 @@
-// This file should read:
-// export * from 'lib/xcode.js'
+import xcode from './lib/xcode';
 
-// but this syntax is broken in traceur: https://github.com/google/traceur-compiler/issues/1042
+export default xcode;
