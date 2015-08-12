@@ -1,17 +1,15 @@
 // transpile:mocha
 
-import * as xcode from '../lib/xcode';
+import * as xcode from '../..';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import 'mochawait';
-import fs from 'fs';
-import denodeify from 'denodeify';
+import { fs } from 'appium-support';
 import _ from 'lodash';
+
 
 let should = chai.should();
 chai.use(chaiAsPromised);
-
-let fileExists = denodeify(fs.stat);
 
 describe('xcode @skip-linux', () => {
 
@@ -19,40 +17,53 @@ describe('xcode @skip-linux', () => {
 
     let path = await xcode.getPath();
     should.exist(path);
-    await fileExists(path);
+    await fs.exists(path);
 
   });
 
-  it('should get the version of xcode', async function () {
+  describe('getVersion', () => {
+    let versionRE = /\d\.\d\.*\d*/;
 
-    let version = await xcode.getVersion();
-    should.exist(version);
-    _.isString(version).should.be.true;
-    /\d\.\d\.*\d*/.test(version).should.be.true;
-  });
+    it('should get the version of xcode', async function () {
+      let version = await xcode.getVersion();
+      should.exist(version);
+      _.isString(version).should.be.true;
+      versionRE.test(version).should.be.true;
+    });
 
-  it('should get the path and version again, these values are cached', async function () {
+    it('should get the path and version again, these values are cached', async function () {
+      await xcode.getPath();
+      await xcode.getVersion();
 
-    await xcode.getPath();
-    await xcode.getVersion();
+      let before = new Date();
+      let path = await xcode.getPath();
+      let after = new Date();
 
-    let before = new Date();
-    let path = await xcode.getPath();
-    let after = new Date();
+      should.exist(path);
+      await fs.exists(path);
+      (after-before).should.be.at.most(2);
 
-    should.exist(path);
-    await fileExists(path);
-    (after-before).should.be.at.most(2);
+      before = new Date();
+      let version = await xcode.getVersion();
+      after = new Date();
 
-    before = new Date();
-    let version = await xcode.getVersion();
-    after = new Date();
+      should.exist(version);
+      _.isString(version).should.be.true;
+      versionRE.test(version).should.be.true;
+      (after-before).should.be.at.most(2);
+    });
 
-    should.exist(version);
-    _.isString(version).should.be.true;
-    /\d\.\d\.*\d*/.test(version).should.be.true;
-    (after-before).should.be.at.most(2);
+    it('should get the parsed version', async function () {
+      let nonParsedVersion = await xcode.getVersion();
+      let version = await xcode.getVersion(true);
+      should.exist(version);
+      _.isString(version.versionString).should.be.true;
+      version.versionString.should.eql(nonParsedVersion);
 
+      parseFloat(version.versionFloat).should.equal(version.versionFloat);
+      parseInt(version.major).should.equal(version.major);
+      parseInt(version.minor).should.equal(version.minor);
+    });
   });
 
   it('should clear the cache if asked to', async function () {
@@ -70,7 +81,7 @@ describe('xcode @skip-linux', () => {
     let path = await xcode.getAutomationTraceTemplatePath();
 
     should.exist(path);
-    fileExists(path).should.eventually.be.true;
+    await fs.exists(path).should.eventually.be.true;
     let suffix = ".tracetemplate";
     path.slice(-suffix.length).should.equal(suffix);
   });
@@ -95,6 +106,6 @@ describe('xcode @skip-linux', () => {
     should.exist(instrumentsPath);
     (typeof instrumentsPath).should.equal('string');
     instrumentsPath.length.should.be.above(3);
-    await fileExists(instrumentsPath);
+    await fs.exists(instrumentsPath);
   });
 });
