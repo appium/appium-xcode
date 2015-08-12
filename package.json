@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "appium-logger": "^1.1.7",
-    "appium-support": "2.0.0-beta15",
+    "appium-support": "2.0.0-beta18",
     "asyncbox": "^2.0.2",
     "babel-runtime": "5.5.5",
     "bluebird": "^2.9.34",
@@ -45,7 +45,7 @@
     "appium-gulp-plugins": "^1.3.0",
     "chai": "^2.2.0",
     "chai-as-promised": "^4.3.0",
-    "gulp": "^3.8.10",
+    "gulp": "^3.8.11",
     "mochawait": "^2.0.0",
     "sinon": "^1.15.4"
   }
