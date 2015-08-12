@@ -1,3 +1,5 @@
 // transpile:main
 
-export * from 'lib/xcode';
+import * as xcode from './lib/xcode';
+
+export default xcode;

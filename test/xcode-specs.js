@@ -1,6 +1,6 @@
 // transpile:mocha
 
-import * as xcode from '../..';
+import xcode from '..';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import 'mochawait';
