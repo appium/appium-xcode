@@ -25,7 +25,7 @@
   "dependencies": {
     "appium-support": "beta",
     "asyncbox": "^2.0.2",
-    "babel-runtime": "=5.6.16",
+    "babel-runtime": "=5.8.20",
     "denodeify": "^1.2.1",
     "lodash": "^3.6.0",
     "npmlog": "^1.2.0",
