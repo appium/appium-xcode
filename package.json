@@ -26,16 +26,14 @@
   },
   "dependencies": {
     "appium-logger": "^1.1.7",
-    "appium-support": "beta",
-    "asyncbox": "^2.2.0",
-    "babel-runtime": "=5.8.20",
-    "bluebird": "^2.9.34",
-    "bplist-parser": "^0.1.0",
+    "appium-support": "^2.0.0",
+    "asyncbox": "^2.3.0",
+    "babel-runtime": "=5.8.24",
     "denodeify": "^1.2.1",
-    "lodash": "^3.6.0",
+    "lodash": "^3.10.0",
     "plist": "^1.1.0",
     "source-map-support": "^0.3.2",
-    "teen_process": "^1.1.0"
+    "teen_process": "^1.3.0"
   },
   "scripts": {
     "prepublish": "gulp prepublish",
@@ -44,10 +42,9 @@
   },
   "devDependencies": {
     "appium-gulp-plugins": "^1.3.0",
-    "chai": "^3.1.0",
+    "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
     "gulp": "^3.8.10",
-    "mochawait": "^2.0.0",
     "sinon": "^1.15.4"
   }
 }

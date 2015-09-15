@@ -2,7 +2,6 @@
 
 import xcode from '..';
 import chai from 'chai';
-import 'mochawait';
 
 chai.should();
 
