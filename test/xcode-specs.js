@@ -72,7 +72,7 @@ describe('xcode @skip-linux', () => {
     let before = new Date();
     await xcode.getPath();
     let after = new Date();
-    (after-before).should.be.at.least(7);
+    (after-before).should.be.at.least(6);
 
   });
 
