@@ -1,6 +1,6 @@
 // transpile:mocha
 
-import * as xcode from '../..';
+import * as xcode from '../index.js';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import { fs } from 'appium-support';
