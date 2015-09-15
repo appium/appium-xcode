@@ -3,7 +3,6 @@
 import xcode from '../index';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import 'mochawait';
 import { fs } from 'appium-support';
 import _ from 'lodash';
 
