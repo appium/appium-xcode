@@ -11,9 +11,7 @@ let should = chai.should();
 chai.use(chaiAsPromised);
 
 describe('xcode @skip-linux', () => {
-
   it('should get the path to xcode executable', async function () {
-
     let path = await xcode.getPath();
     should.exist(path);
     await fs.exists(path);
@@ -66,7 +64,6 @@ describe('xcode @skip-linux', () => {
   });
 
   it('should clear the cache if asked to', async function () {
-
     xcode.clearInternalCache();
 
     let before = new Date();
@@ -76,16 +73,7 @@ describe('xcode @skip-linux', () => {
 
   });
 
-  it('should find the automation trace template', async () => {
-    let path = await xcode.getAutomationTraceTemplatePath();
-
-    should.exist(path);
-    await fs.exists(path).should.eventually.be.true;
-    let suffix = ".tracetemplate";
-    path.slice(-suffix.length).should.equal(suffix);
-  });
-
-  it('should get max iOS SDK version', async() => {
+  it('should get max iOS SDK version', async () => {
     let version = await xcode.getMaxIOSSDK();
 
     should.exist(version);
@@ -93,18 +81,35 @@ describe('xcode @skip-linux', () => {
     (parseFloat(version)-6.1).should.be.at.least(0);
   });
 
-  it('should get a list of iOS devices', async() => {
+  it('should get a list of iOS devices', async () => {
     let devices = await xcode.getConnectedDevices();
     should.exist(devices);
     (typeof devices).should.equal('object');
   });
 
-  it('should get the path to instruments binary', async() => {
+  it('should get the path to instruments binary', async () => {
     let instrumentsPath = await xcode.getInstrumentsPath();
 
     should.exist(instrumentsPath);
     (typeof instrumentsPath).should.equal('string');
     instrumentsPath.length.should.be.above(3);
     await fs.exists(instrumentsPath);
+  });
+
+  describe('ui automation', function () {
+    before(async function () {
+      let version = await xcode.getVersion(true);
+      if (version.major >= 8) {
+        this.skip();
+      }
+    });
+    it('should find the automation trace template', async () => {
+      let path = await xcode.getAutomationTraceTemplatePath();
+
+      should.exist(path);
+      await fs.exists(path).should.eventually.be.true;
+      let suffix = ".tracetemplate";
+      path.slice(-suffix.length).should.equal(suffix);
+    });
   });
 });
