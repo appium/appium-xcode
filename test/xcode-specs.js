@@ -10,7 +10,10 @@ import _ from 'lodash';
 let should = chai.should();
 chai.use(chaiAsPromised);
 
-describe('xcode @skip-linux', () => {
+describe('xcode @skip-linux', function () {
+  // on slow machines and busy CI systems these can be slow and flakey
+  this.timeout(30000);
+
   it('should get the path to xcode executable', async function () {
     let path = await xcode.getPath();
     should.exist(path);
