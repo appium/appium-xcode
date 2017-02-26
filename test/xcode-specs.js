@@ -66,6 +66,11 @@ describe('xcode @skip-linux', function () {
     });
   });
 
+  it('should get the command line tools version', async () => {
+    let cliVersion = await xcode.getCommandLineToolsVersion();
+    _.isString(cliVersion).should.be.true;
+  });
+
   it('should clear the cache if asked to', async function () {
     xcode.clearInternalCache();
 
