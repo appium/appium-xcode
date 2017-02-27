@@ -61,8 +61,8 @@ describe('xcode @skip-linux', function () {
       version.versionString.should.eql(nonParsedVersion);
 
       parseFloat(version.versionFloat).should.equal(version.versionFloat);
-      parseInt(version.major).should.equal(version.major);
-      parseInt(version.minor).should.equal(version.minor);
+      parseInt(version.major, 10).should.equal(version.major);
+      parseInt(version.minor, 10).should.equal(version.minor);
     });
   });
 
