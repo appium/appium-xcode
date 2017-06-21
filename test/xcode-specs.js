@@ -89,6 +89,14 @@ describe('xcode @skip-linux', function () {
     (parseFloat(version)-6.1).should.be.at.least(0);
   });
 
+  it('should get max tvOS SDK version', async () => {
+    let version = await xcode.getMaxTVOSSDK();
+
+    should.exist(version);
+    (typeof version).should.equal('string');
+    (parseFloat(version)-6.1).should.be.at.least(0);
+  });
+
   it('should get a list of iOS devices', async () => {
     let devices = await xcode.getConnectedDevices();
     should.exist(devices);
