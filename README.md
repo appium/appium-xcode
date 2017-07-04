@@ -52,6 +52,16 @@ eg: `'8.3'`
 
 same as `getMaxIOSDK()` but without retry or memoization
 
+### getMaxTVOSSDK([num_retries])
+*memoized*, *retry*
+
+returns largest tvOS SDK version supported by Xcode.
+eg: `'10.1'`
+
+### getMaxTVOSSDKWithoutRetry()
+
+same as `getMaxTVOSSDK()` but without retry or memoization
+
 ### clearInternalCache()
 clears the internal cache used for memoizing functions.
 
