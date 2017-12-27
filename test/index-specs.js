@@ -5,8 +5,8 @@ import chai from 'chai';
 
 chai.should();
 
-describe('index', () => {
-  it('exported objects should exist', () => {
+describe('index', function () {
+  it('exported objects should exist', function () {
     xcode.should.exist;
   });
 });

@@ -66,7 +66,7 @@ describe('xcode @skip-linux', function () {
     });
   });
 
-  it('should get the command line tools version', async () => {
+  it('should get the command line tools version', async function () {
     let cliVersion = await xcode.getCommandLineToolsVersion();
     _.isString(cliVersion).should.be.true;
   });
@@ -81,7 +81,7 @@ describe('xcode @skip-linux', function () {
 
   });
 
-  it('should get max iOS SDK version', async () => {
+  it('should get max iOS SDK version', async function () {
     let version = await xcode.getMaxIOSSDK();
 
     should.exist(version);
@@ -89,20 +89,20 @@ describe('xcode @skip-linux', function () {
     (parseFloat(version)-6.1).should.be.at.least(0);
   });
 
-  it('should get max tvOS SDK version', async () => {
+  it('should get max tvOS SDK version', async function () {
     let version = await xcode.getMaxTVOSSDK();
 
     should.exist(version);
     (typeof version).should.equal('string');
   });
 
-  it('should get a list of devices', async () => {
+  it('should get a list of devices', async function () {
     let devices = await xcode.getConnectedDevices();
     should.exist(devices);
     (typeof devices).should.equal('object');
   });
 
-  it('should get the path to instruments binary', async () => {
+  it('should get the path to instruments binary', async function () {
     let instrumentsPath = await xcode.getInstrumentsPath();
 
     should.exist(instrumentsPath);
@@ -118,7 +118,7 @@ describe('xcode @skip-linux', function () {
         this.skip();
       }
     });
-    it('should find the automation trace template', async () => {
+    it('should find the automation trace template', async function () {
       let path = await xcode.getAutomationTraceTemplatePath();
 
       should.exist(path);
