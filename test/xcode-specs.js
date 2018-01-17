@@ -21,7 +21,7 @@ describe('xcode @skip-linux', function () {
 
   });
 
-  describe('getVersion', () => {
+  describe('getVersion', function () {
     let versionRE = /\d\.\d\.*\d*/;
 
     it('should get the version of xcode', async function () {
