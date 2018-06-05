@@ -3,4 +3,4 @@ build
 *.log
 .idea
 coverage
-package-lock.json
+package-lock.json*
