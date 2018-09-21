@@ -41,7 +41,7 @@ describe('xcode @skip-linux', function () {
 
       should.exist(path);
       await fs.exists(path);
-      (after-before).should.be.at.most(2);
+      (after - before).should.be.at.most(2);
 
       before = new Date();
       let version = await xcode.getVersion();
@@ -50,7 +50,7 @@ describe('xcode @skip-linux', function () {
       should.exist(version);
       _.isString(version).should.be.true;
       versionRE.test(version).should.be.true;
-      (after-before).should.be.at.most(2);
+      (after - before).should.be.at.most(2);
     });
 
     it('should get the parsed version', async function () {
@@ -77,8 +77,7 @@ describe('xcode @skip-linux', function () {
     let before = new Date();
     await xcode.getPath();
     let after = new Date();
-    (after-before).should.be.at.least(6);
-
+    (after - before).should.be.at.least(6);
   });
 
   it('should get max iOS SDK version', async function () {
@@ -86,7 +85,7 @@ describe('xcode @skip-linux', function () {
 
     should.exist(version);
     (typeof version).should.equal('string');
-    (parseFloat(version)-6.1).should.be.at.least(0);
+    (parseFloat(version) - 6.1).should.be.at.least(0);
   });
 
   it('should get max tvOS SDK version', async function () {
