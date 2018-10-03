@@ -1,6 +1,19 @@
 // transpile:main
 
-import xcode from './lib/xcode';
+import * as xcode from './lib/xcode';
 
-export { xcode };
+
+const {
+  getPath, getVersion, getAutomationTraceTemplatePath, getMaxIOSSDK,
+  getAutomationTraceTemplatePathWithoutRetry, getMaxIOSSDKWithoutRetry,
+  getConnectedDevices, clearInternalCache, getInstrumentsPath,
+  getCommandLineToolsVersion, getMaxTVOSSDK, getMaxTVOSSDKWithoutRetry,
+} = xcode;
+
+export {
+  getPath, getVersion, getAutomationTraceTemplatePath, getMaxIOSSDK,
+  getAutomationTraceTemplatePathWithoutRetry, getMaxIOSSDKWithoutRetry,
+  getConnectedDevices, clearInternalCache, getInstrumentsPath,
+  getCommandLineToolsVersion, getMaxTVOSSDK, getMaxTVOSSDKWithoutRetry,
+};
 export default xcode;
