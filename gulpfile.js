@@ -6,7 +6,7 @@ const boilerplate = require('appium-gulp-plugins').boilerplate.use(gulp);
 boilerplate({
   build: 'Appium Xcode',
   coverage: {
-    files: ['./test/**/*-specs.js'],
-    verbose: true
+    files: ['./build/test/**/*-specs.js', '!./build/test/**/*-e2e-specs.js'],
+    verbose: true,
   },
 });
