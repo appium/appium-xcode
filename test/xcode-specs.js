@@ -122,7 +122,7 @@ describe('xcode @skip-linux', function () {
 
       should.exist(path);
       await fs.exists(path).should.eventually.be.true;
-      let suffix = ".tracetemplate";
+      let suffix = '.tracetemplate';
       path.slice(-suffix.length).should.equal(suffix);
     });
   });
