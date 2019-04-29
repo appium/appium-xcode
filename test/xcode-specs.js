@@ -3,7 +3,7 @@
 import xcode from '../index';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import { fs } from 'appium-support';
+import { fs, util } from 'appium-support';
 import _ from 'lodash';
 
 
@@ -69,6 +69,11 @@ describe('xcode @skip-linux', function () {
   it('should get the command line tools version', async function () {
     let cliVersion = await xcode.getCommandLineToolsVersion();
     _.isString(cliVersion).should.be.true;
+  });
+
+  it('should get clang version', async function () {
+    const cliVersion = await xcode.getClangVersion();
+    _.isString(util.coerceVersion(cliVersion, true)).should.be.true;
   });
 
   it('should clear the cache if asked to', async function () {

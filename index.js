@@ -8,6 +8,7 @@ const {
   getAutomationTraceTemplatePathWithoutRetry, getMaxIOSSDKWithoutRetry,
   getConnectedDevices, clearInternalCache, getInstrumentsPath,
   getCommandLineToolsVersion, getMaxTVOSSDK, getMaxTVOSSDKWithoutRetry,
+  getClangVersion,
 } = xcode;
 
 export {
@@ -15,5 +16,6 @@ export {
   getAutomationTraceTemplatePathWithoutRetry, getMaxIOSSDKWithoutRetry,
   getConnectedDevices, clearInternalCache, getInstrumentsPath,
   getCommandLineToolsVersion, getMaxTVOSSDK, getMaxTVOSSDKWithoutRetry,
+  getClangVersion,
 };
 export default xcode;
