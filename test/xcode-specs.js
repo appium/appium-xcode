@@ -67,6 +67,10 @@ describe('xcode @skip-linux', function () {
   });
 
   it('should get the command line tools version', async function () {
+    if (!process.env.CI) {
+      // The function does not work anymore for recent xcode versions
+      return this.skip();
+    }
     let cliVersion = await xcode.getCommandLineToolsVersion();
     _.isString(cliVersion).should.be.true;
   });
