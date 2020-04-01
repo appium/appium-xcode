@@ -66,8 +66,5 @@
     "gulp": "^4.0.0",
     "mocha": "^7.0.1",
     "pre-commit": "^1.1.3"
-  },
-  "greenkeeper": {
-    "ignore": []
   }
 }
