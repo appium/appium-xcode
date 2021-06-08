@@ -18,7 +18,7 @@ jobs:
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
-        node-version: $NODE_VERSION
+        node-version: ${{ env.NODE_VERSION }}
     - name: Select Xcode ${{ matrix.xcode-version }}
       run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode-version }}.app
     - run: npm run clean
