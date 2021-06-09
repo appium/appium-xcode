@@ -111,7 +111,12 @@ describe('xcode @skip-linux', function () {
   });
 
   it('should get the path to instruments binary', async function () {
-    let instrumentsPath = await xcode.getInstrumentsPath();
+    const version = await xcode.getVersion(true);
+    if (version.major >= 13) {
+      return this.skip();
+    }
+
+    const instrumentsPath = await xcode.getInstrumentsPath();
 
     should.exist(instrumentsPath);
     (typeof instrumentsPath).should.equal('string');
