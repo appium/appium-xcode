@@ -3,7 +3,7 @@
 import xcode from '../index';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import { fs, util } from 'appium-support';
+import { fs, util } from '@appium/support';
 import _ from 'lodash';
 
 
