@@ -1,6 +1,4 @@
-// transpile:mocha
-
-import xcode from '../index.js';
+import xcode from '../../index.js';
 import chai from 'chai';
 
 chai.should();
