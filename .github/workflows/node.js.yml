@@ -1,17 +1,16 @@
 name: Node.js CI
 on: [push, pull_request]
 env:
-  NODE_VERSION: 14.x
+  NODE_VERSION: 16.x
 
 jobs:
   build:
 
-    # https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md
-    runs-on: macos-10.15
+    runs-on: macos-11
 
     strategy:
       matrix:
-        xcode-version: ["10.3", "11.7", "12.4"]
+        xcode-version: ["11.7", "12.4", "13.2"]
 
     steps:
     - uses: actions/checkout@v2
@@ -21,5 +20,5 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
     - name: Select Xcode ${{ matrix.xcode-version }}
       run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode-version }}.app
-    - run: npm run clean
+    - run: npm install
     - run: _FORCE_LOGS=1 npm run test

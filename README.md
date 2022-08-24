@@ -8,8 +8,6 @@ appium-xcode
 ES7 module for interacting with Xcode and Xcode-related functions.
 Used by [Appium](github.com/appium/appium)
 
-*Note*: Issue tracking for this repo has been disabled. Please use the [main Appium issue tracker](https://github.com/appium/appium/issues) instead.
-
 API
 ===
 
@@ -66,16 +64,11 @@ clears the internal cache used for memoizing functions.
 Develop
 =======
 
-## Watch
-
-```
-npm run watch
-```
-
 ## Test
 
 ```
 npm test
+npm e2e-test
 ```
 
 Debug
@@ -83,4 +76,4 @@ Debug
 
 After cloning appium-xcode, execute `npm link` in the appium-xcode directory. Next run `npm link appium-xcode` from the appium directory. This will symlink appium-xcode to node_modules/appium-xcode. If the clone becomes out of date remember to unlink or delete node_modules and reinstall.
 
-For quick debugging you could cd into the node_modules/appium-xcode folder and run `npm install` followed by `gulp transpile`.
+For quick debugging you could cd into the node_modules/appium-xcode folder and run `npm install` followed by `npm run build`.
