@@ -21,4 +21,6 @@ jobs:
     - name: Select Xcode ${{ matrix.xcode-version }}
       run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode-version }}.app
     - run: npm install
+    - run: npm run build
+    - run: npm run lint
     - run: _FORCE_LOGS=1 npm run test
