@@ -1,4 +1,4 @@
-import xcode from '../../index';
+import * as xcode from '../../lib/xcode';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import { fs, util } from '@appium/support';
@@ -12,11 +12,37 @@ describe('xcode @skip-linux', function () {
   // on slow machines and busy CI systems these can be slow and flakey
   this.timeout(30000);
 
-  it('should get the path to xcode executable', async function () {
-    let path = await xcode.getPath();
-    should.exist(path);
-    await fs.exists(path);
+  describe('getPath', function () {
+    it('should get the path to xcode from xcode-select', async function () {
+      const path = await xcode.getPathFromXcodeSelect();
+      should.exist(path);
+      await fs.exists(path);
+    });
 
+    it('should get the path to xcode if provided in DEVELOPER_DIR', async function () {
+      process.env.DEVELOPER_DIR = await xcode.getPathFromXcodeSelect();
+      try {
+        const path = await xcode.getPathFromDeveloperDir();
+        should.exist(path);
+        await fs.exists(path);
+      } finally {
+        delete process.env.DEVELOPER_DIR;
+      }
+    });
+
+    it('should fail if the path to xcode provided in DEVELOPER_DIR is wrong', async function () {
+      process.env.DEVELOPER_DIR = 'yolo';
+      try {
+        await xcode.getPathFromDeveloperDir().should.eventually.be.rejected;
+      } finally {
+        delete process.env.DEVELOPER_DIR;
+      }
+    });
+
+    it('should get the path to xcode', async function () {
+      const path = await xcode.getPath();
+      path.should.eql(await xcode.getPathFromXcodeSelect());
+    });
   });
 
   describe('getVersion', function () {
@@ -64,27 +90,9 @@ describe('xcode @skip-linux', function () {
     });
   });
 
-  it('should get the command line tools version', async function () {
-    if (!process.env.CI) {
-      // The function does not work anymore for recent xcode versions
-      return this.skip();
-    }
-    let cliVersion = await xcode.getCommandLineToolsVersion();
-    _.isString(cliVersion).should.be.true;
-  });
-
   it('should get clang version', async function () {
     const cliVersion = await xcode.getClangVersion();
     _.isString(util.coerceVersion(cliVersion, true)).should.be.true;
-  });
-
-  it('should clear the cache if asked to', async function () {
-    xcode.clearInternalCache();
-
-    let before = new Date();
-    await xcode.getPath();
-    let after = new Date();
-    (after - before).should.be.at.least(6);
   });
 
   it('should get max iOS SDK version', async function () {
@@ -100,42 +108,5 @@ describe('xcode @skip-linux', function () {
 
     should.exist(version);
     (typeof version).should.equal('string');
-  });
-
-  it('should get a list of devices', async function () {
-    let devices = await xcode.getConnectedDevices();
-    should.exist(devices);
-    (typeof devices).should.equal('object');
-  });
-
-  it('should get the path to instruments binary', async function () {
-    const version = await xcode.getVersion(true);
-    if (version.major >= 13) {
-      return this.skip();
-    }
-
-    const instrumentsPath = await xcode.getInstrumentsPath();
-
-    should.exist(instrumentsPath);
-    (typeof instrumentsPath).should.equal('string');
-    instrumentsPath.length.should.be.above(3);
-    await fs.exists(instrumentsPath);
-  });
-
-  describe('ui automation', function () {
-    before(async function () {
-      let version = await xcode.getVersion(true);
-      if (version.major >= 8) {
-        this.skip();
-      }
-    });
-    it('should find the automation trace template', async function () {
-      let path = await xcode.getAutomationTraceTemplatePath();
-
-      should.exist(path);
-      await fs.exists(path).should.eventually.be.true;
-      let suffix = '.tracetemplate';
-      path.slice(-suffix.length).should.equal(suffix);
-    });
   });
 });
