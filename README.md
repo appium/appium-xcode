@@ -22,7 +22,7 @@ Some functions have an auto-retry built into them, they will retry silently a nu
 
 gets path to Xcode Developer root.
 
-### getVersion([parse=false], [retries=3], [timeout=15000])
+### getVersion([parse=false], [retries], [timeout])
 *memoized*, *retry*
 
 returns the version of Xcode formatted as a string, for example `6.3.1`, or a version object if `parse` is `true`
