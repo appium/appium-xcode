@@ -1,15 +1,25 @@
 // transpile:main
+import {
+  getPath,
+  getVersion,
+  getMaxIOSSDK,
+  getMaxTVOSSDK,
+  getClangVersion,
+} from './lib/xcode';
 
-import * as xcode from './lib/xcode';
-
-
-const {
-  getPath, getVersion, getMaxIOSSDK, getMaxIOSSDKWithoutRetry,
-  getMaxTVOSSDK, getMaxTVOSSDKWithoutRetry, getClangVersion,
-} = xcode;
+const xcode = {
+  getPath,
+  getVersion,
+  getMaxIOSSDK,
+  getMaxTVOSSDK,
+  getClangVersion
+};
 
 export {
-  getPath, getVersion, getMaxIOSSDK, getMaxIOSSDKWithoutRetry,
-  getMaxTVOSSDK, getMaxTVOSSDKWithoutRetry, getClangVersion,
+  getPath,
+  getVersion,
+  getMaxIOSSDK,
+  getMaxTVOSSDK,
+  getClangVersion
 };
 export default xcode;

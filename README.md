@@ -33,19 +33,11 @@ returns the version of Xcode formatted as a string, for example `6.3.1`, or a ve
 returns the highest IOS SDK version supported by Xcode.
 eg: `'8.3'`
 
-### getMaxIOSSDKWithoutRetry()
-
-same as `getMaxIOSDK()` but without retry or memoization
-
 ### getMaxTVOSSDK([num_retries])
 *memoized*, *retry*
 
 returns highest tvOS SDK version supported by Xcode.
 eg: `'10.1'`
-
-### getMaxTVOSSDKWithoutRetry()
-
-same as `getMaxTVOSSDK()` but without retry or memoization
 
 Develop
 =======
