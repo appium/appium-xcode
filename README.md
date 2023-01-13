@@ -6,7 +6,7 @@ appium-xcode
 [![Release](https://github.com/appium/appium-xcode/actions/workflows/publish.js.yml/badge.svg?branch=master)](https://github.com/appium/appium-xcode/actions/workflows/publish.js.yml)
 
 ES7 module for interacting with Xcode and Xcode-related functions.
-Used by [Appium](github.com/appium/appium)
+Used by various [Appium](github.com/appium/appium) drivers.
 
 API
 ===
@@ -17,49 +17,27 @@ Most functions are memoized, so after they are called once, they will simply ret
 
 Some functions have an auto-retry built into them, they will retry silently a number of times. This is because the Xcode commands sometimes just flake and return bad values (or don't return).
 
-To clear the memoized values, call `clearInternalCache`
-
-### getPath()
+### getPath([timeout=15000])
 *memoized*
 
-gets path to Xcode
+gets path to Xcode Developer root.
 
-### getVersion([num_retries])
+### getVersion([parse=false], [retries], [timeout])
 *memoized*, *retry*
 
-returns the version of Xcode. Returns strings like `'6.3.1'`
-
-### getAutomationTraceTemplatePath([num_retries])
-*memoized, *retry*
-
-returns a path to the default AutomationTraceTemplate
-
-### getAutomationTraceTemplatePathWithoutRetry()
-
-same as `getAutomationTraceTemplatePath()` but without retry or memoization.
+returns the version of Xcode formatted as a string, for example `6.3.1`, or a version object if `parse` is `true`
 
 ### getMaxIOSSDK([num_retries])
 *memoized*, *retry*
 
-returns largest IOS SDK version supported by Xcode.
+returns the highest IOS SDK version supported by Xcode.
 eg: `'8.3'`
-
-### getMaxIOSSDKWithoutRetry()
-
-same as `getMaxIOSDK()` but without retry or memoization
 
 ### getMaxTVOSSDK([num_retries])
 *memoized*, *retry*
 
-returns largest tvOS SDK version supported by Xcode.
+returns highest tvOS SDK version supported by Xcode.
 eg: `'10.1'`
-
-### getMaxTVOSSDKWithoutRetry()
-
-same as `getMaxTVOSSDK()` but without retry or memoization
-
-### clearInternalCache()
-clears the internal cache used for memoizing functions.
 
 Develop
 =======
