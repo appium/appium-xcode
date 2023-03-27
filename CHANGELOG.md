@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/appium/appium-xcode/compare/v5.0.1...v5.0.2) (2023-03-27)
+
+
+### Bug Fixes
+
+* Join array items properly ([#80](https://github.com/appium/appium-xcode/issues/80)) ([02f7bbf](https://github.com/appium/appium-xcode/commit/02f7bbfe7a16386094f3ec34a516a2b39a4e2fae))
+
 ## [5.0.1](https://github.com/appium/appium-xcode/compare/v5.0.0...v5.0.1) (2023-01-17)
 
 
