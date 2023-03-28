@@ -1,4 +1,4 @@
-import xcode from '../../index.js';
+import xcode from '../../lib/index';
 import chai from 'chai';
 
 chai.should();
