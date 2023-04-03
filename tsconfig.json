@@ -6,7 +6,6 @@
     "declarationMap": true,
     "declaration": true,
     "outDir": "build",
-    "emitDeclarationOnly": true,
     "types": ["node", "mocha", "chai", "chai-as-promised"]
   },
   "include": ["lib", "test"]
