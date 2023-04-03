@@ -1,3 +1,10 @@
+## [5.1.0](https://github.com/appium/appium-xcode/compare/v5.0.2...v5.1.0) (2023-04-03)
+
+
+### Features
+
+* ship type declarations ([94548ae](https://github.com/appium/appium-xcode/commit/94548ae4d3728b982d0e818efeedbd4b55ffc955))
+
 ## [5.0.2](https://github.com/appium/appium-xcode/compare/v5.0.1...v5.0.2) (2023-03-27)
 
 
