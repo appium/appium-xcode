@@ -31,7 +31,7 @@
     "CHANGELOG.md"
   ],
   "dependencies": {
-    "@appium/support": "^3.0.0",
+    "@appium/support": "^4.0.0",
     "@babel/runtime": "^7.0.0",
     "@types/lodash": "^4.14.192",
     "@types/teen_process": "^2.0.0",
