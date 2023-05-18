@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/appium/appium-xcode/compare/v5.1.0...v5.1.1) (2023-05-18)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump @appium/support from 3.1.11 to 4.0.0 ([#86](https://github.com/appium/appium-xcode/issues/86)) ([84c9c23](https://github.com/appium/appium-xcode/commit/84c9c23ab6ce421a96ec3c0426d68c409f0a6325))
+
 ## [5.1.0](https://github.com/appium/appium-xcode/compare/v5.0.2...v5.1.0) (2023-04-03)
 
 
