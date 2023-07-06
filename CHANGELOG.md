@@ -1,3 +1,10 @@
+## [5.1.3](https://github.com/appium/appium-xcode/compare/v5.1.2...v5.1.3) (2023-07-06)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @appium/tsconfig from 0.2.4 to 0.3.0 ([#84](https://github.com/appium/appium-xcode/issues/84)) ([6af8b7a](https://github.com/appium/appium-xcode/commit/6af8b7aecb87519a89fccd1a0a0a0d379eb08d7b))
+
 ## [5.1.2](https://github.com/appium/appium-xcode/compare/v5.1.1...v5.1.2) (2023-06-07)
 
 
