@@ -1,3 +1,10 @@
+## [5.1.4](https://github.com/appium/appium-xcode/compare/v5.1.3...v5.1.4) (2023-07-06)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump prettier from 2.8.8 to 3.0.0 ([#92](https://github.com/appium/appium-xcode/issues/92)) ([4ae26f4](https://github.com/appium/appium-xcode/commit/4ae26f420f5fc5ad4e31d93caca3c68c96526b70))
+
 ## [5.1.3](https://github.com/appium/appium-xcode/compare/v5.1.2...v5.1.3) (2023-07-06)
 
 
