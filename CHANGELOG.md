@@ -1,3 +1,10 @@
+## [5.1.6](https://github.com/appium/appium-xcode/compare/v5.1.5...v5.1.6) (2023-08-25)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump semantic-release from 20.1.3 to 21.1.0 ([#95](https://github.com/appium/appium-xcode/issues/95)) ([af02967](https://github.com/appium/appium-xcode/commit/af029671930ff23bb29a39025f2deedcf12591d4))
+
 ## [5.1.5](https://github.com/appium/appium-xcode/compare/v5.1.4...v5.1.5) (2023-08-14)
 
 
