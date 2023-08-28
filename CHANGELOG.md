@@ -1,3 +1,10 @@
+## [5.1.7](https://github.com/appium/appium-xcode/compare/v5.1.6...v5.1.7) (2023-08-28)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([#96](https://github.com/appium/appium-xcode/issues/96)) ([e7ae34d](https://github.com/appium/appium-xcode/commit/e7ae34d9921ba3eaa4acb3ed0b3d7568d02b6868))
+
 ## [5.1.6](https://github.com/appium/appium-xcode/compare/v5.1.5...v5.1.6) (2023-08-25)
 
 
