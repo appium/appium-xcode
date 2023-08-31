@@ -21,11 +21,7 @@
     "npm": ">=8"
   },
   "main": "./build/lib/index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "files": [
-    "index.js",
     "lib",
     "build/lib",
     "CHANGELOG.md"

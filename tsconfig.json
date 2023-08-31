@@ -2,12 +2,12 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@appium/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "checkJs": true,
-    "declarationMap": true,
-    "declaration": true,
+    "strict": false,  // TODO: make this flag true
     "outDir": "build",
-    "emitDeclarationOnly": true,
-    "types": ["node", "mocha", "chai", "chai-as-promised"]
+    "types": ["node"],
+    "checkJs": true
   },
-  "include": ["lib", "test"]
+  "include": [
+    "lib"
+  ]
 }
