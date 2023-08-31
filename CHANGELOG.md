@@ -1,3 +1,10 @@
+## [5.2.0](https://github.com/appium/appium-xcode/compare/v5.1.7...v5.2.0) (2023-08-31)
+
+
+### Features
+
+* Switch babel to typescript ([#97](https://github.com/appium/appium-xcode/issues/97)) ([96f85f0](https://github.com/appium/appium-xcode/commit/96f85f0f69fd329503b709c902ab614a6091dfe6))
+
 ## [5.1.7](https://github.com/appium/appium-xcode/compare/v5.1.6...v5.1.7) (2023-08-28)
 
 
