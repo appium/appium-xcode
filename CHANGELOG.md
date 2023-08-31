@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/appium/appium-xcode/compare/v5.2.0...v5.2.1) (2023-08-31)
+
+
+### Bug Fixes
+
+* Tune package.json ([98db315](https://github.com/appium/appium-xcode/commit/98db315fc7b7614a86757dfb31b1bae2ea9ed2b2))
+
 ## [5.2.0](https://github.com/appium/appium-xcode/compare/v5.1.7...v5.2.0) (2023-08-31)
 
 
