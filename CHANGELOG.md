@@ -1,3 +1,10 @@
+## [5.2.3](https://github.com/appium/appium-xcode/compare/v5.2.2...v5.2.3) (2023-10-19)
+
+
+### Miscellaneous Chores
+
+* Use latest types version ([61217da](https://github.com/appium/appium-xcode/commit/61217dac261fc6eece952565268eacf66f399a87))
+
 ## [5.2.2](https://github.com/appium/appium-xcode/compare/v5.2.1...v5.2.2) (2023-10-19)
 
 
