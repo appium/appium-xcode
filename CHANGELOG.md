@@ -1,3 +1,10 @@
+## [5.2.4](https://github.com/appium/appium-xcode/compare/v5.2.3...v5.2.4) (2023-10-19)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump lint-staged from 14.0.1 to 15.0.2 ([#115](https://github.com/appium/appium-xcode/issues/115)) ([e19e01d](https://github.com/appium/appium-xcode/commit/e19e01da6caa44059a269fc83749ce3a6e42a193))
+
 ## [5.2.3](https://github.com/appium/appium-xcode/compare/v5.2.2...v5.2.3) (2023-10-19)
 
 
