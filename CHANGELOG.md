@@ -1,3 +1,10 @@
+## [5.2.5](https://github.com/appium/appium-xcode/compare/v5.2.4...v5.2.5) (2023-10-19)
+
+
+### Miscellaneous Chores
+
+* Use latest teen_process types ([9631cc1](https://github.com/appium/appium-xcode/commit/9631cc1991978e6ea5954067dd242818ade21a03))
+
 ## [5.2.4](https://github.com/appium/appium-xcode/compare/v5.2.3...v5.2.4) (2023-10-19)
 
 
