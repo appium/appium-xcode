@@ -1,3 +1,11 @@
+## [5.2.2](https://github.com/appium/appium-xcode/compare/v5.2.1...v5.2.2) (2023-10-19)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump eslint-config-prettier from 8.10.0 to 9.0.0 ([#112](https://github.com/appium/appium-xcode/issues/112)) ([59e434e](https://github.com/appium/appium-xcode/commit/59e434efc171b664f0fa79a310dbc067d24c801e))
+* **deps:** bump @types/teen_process from 2.0.0 to 2.0.1 ([b4f2e1b](https://github.com/appium/appium-xcode/commit/b4f2e1b9244b1d607b58600fa5ca9f7828da3600))
+
 ## [5.2.1](https://github.com/appium/appium-xcode/compare/v5.2.0...v5.2.1) (2023-08-31)
 
 
