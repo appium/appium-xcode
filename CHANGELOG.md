@@ -1,3 +1,11 @@
+## [5.2.6](https://github.com/appium/appium-xcode/compare/v5.2.5...v5.2.6) (2023-10-25)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @typescript-eslint/eslint-plugin from 5.62.0 to 6.9.0 ([#116](https://github.com/appium/appium-xcode/issues/116)) ([92184fd](https://github.com/appium/appium-xcode/commit/92184fdc82b08000ef79140cf993e958dabb777a))
+* **deps-dev:** bump semantic-release from 21.1.2 to 22.0.5 ([#106](https://github.com/appium/appium-xcode/issues/106)) ([2fd68a4](https://github.com/appium/appium-xcode/commit/2fd68a488749a62ff3944ff07af215016b5d08ef))
+
 ## [5.2.5](https://github.com/appium/appium-xcode/compare/v5.2.4...v5.2.5) (2023-10-19)
 
 
