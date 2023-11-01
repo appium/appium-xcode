@@ -30,7 +30,7 @@
     "@appium/support": "^4.0.0",
     "@types/lodash": "^4.14.192",
     "@types/teen_process": "^2.0.0",
-    "asyncbox": "^2.3.0",
+    "asyncbox": "^3.0.0",
     "lodash": "^4.17.4",
     "plist": "^3.0.1",
     "semver": "^7.0.0",
