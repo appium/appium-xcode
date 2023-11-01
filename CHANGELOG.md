@@ -1,3 +1,10 @@
+## [5.2.7](https://github.com/appium/appium-xcode/compare/v5.2.6...v5.2.7) (2023-11-01)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump asyncbox from 2.9.4 to 3.0.0 ([#117](https://github.com/appium/appium-xcode/issues/117)) ([cd3c2b6](https://github.com/appium/appium-xcode/commit/cd3c2b6494cec3d9893572b582b1abeba2adc8b5))
+
 ## [5.2.6](https://github.com/appium/appium-xcode/compare/v5.2.5...v5.2.6) (2023-10-25)
 
 
