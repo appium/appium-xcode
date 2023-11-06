@@ -1,3 +1,10 @@
+## [5.2.8](https://github.com/appium/appium-xcode/compare/v5.2.7...v5.2.8) (2023-11-06)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/sinon from 10.0.20 to 17.0.0 ([#118](https://github.com/appium/appium-xcode/issues/118)) ([14c97b9](https://github.com/appium/appium-xcode/commit/14c97b9300d4cf9f16fd512bc6ad82a364a4381f))
+
 ## [5.2.7](https://github.com/appium/appium-xcode/compare/v5.2.6...v5.2.7) (2023-11-01)
 
 
