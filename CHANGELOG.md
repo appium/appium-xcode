@@ -1,3 +1,10 @@
+## [5.2.10](https://github.com/appium/appium-xcode/compare/v5.2.9...v5.2.10) (2024-03-02)
+
+
+### Bug Fixes
+
+* add bluebird to package.json ([#130](https://github.com/appium/appium-xcode/issues/130)) ([443b661](https://github.com/appium/appium-xcode/commit/443b661f75f7b9cd2d839be2f7b5d82b56552d84))
+
 ## [5.2.9](https://github.com/appium/appium-xcode/compare/v5.2.8...v5.2.9) (2024-01-16)
 
 
