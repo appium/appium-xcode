@@ -1,3 +1,10 @@
+## [5.2.11](https://github.com/appium/appium-xcode/compare/v5.2.10...v5.2.11) (2024-03-07)
+
+
+### Miscellaneous Chores
+
+* bump typescript ([e10978c](https://github.com/appium/appium-xcode/commit/e10978cd10f825659fd2fb404d1a89b534c6b660))
+
 ## [5.2.10](https://github.com/appium/appium-xcode/compare/v5.2.9...v5.2.10) (2024-03-02)
 
 
