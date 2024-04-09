@@ -1,3 +1,10 @@
+## [5.2.12](https://github.com/appium/appium-xcode/compare/v5.2.11...v5.2.12) (2024-04-09)
+
+
+### Miscellaneous Chores
+
+* Remove extra imports ([a734c52](https://github.com/appium/appium-xcode/commit/a734c52d3e33e81963e67d007d6da1b4019b85ba))
+
 ## [5.2.11](https://github.com/appium/appium-xcode/compare/v5.2.10...v5.2.11) (2024-03-07)
 
 
