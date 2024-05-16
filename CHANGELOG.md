@@ -1,3 +1,10 @@
+## [5.2.13](https://github.com/appium/appium-xcode/compare/v5.2.12...v5.2.13) (2024-05-16)
+
+
+### Miscellaneous Chores
+
+* Update dev dependencies ([5e67a46](https://github.com/appium/appium-xcode/commit/5e67a46ca1c24e821721eb0984e6aad719905236))
+
 ## [5.2.12](https://github.com/appium/appium-xcode/compare/v5.2.11...v5.2.12) (2024-04-09)
 
 
