@@ -1,3 +1,9 @@
+## [5.2.14](https://github.com/appium/appium-xcode/compare/v5.2.13...v5.2.14) (2024-06-03)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump semantic-release from 23.1.1 to 24.0.0 and conventional-changelog-conventionalcommits to v8 ([#140](https://github.com/appium/appium-xcode/issues/140)) ([9415325](https://github.com/appium/appium-xcode/commit/9415325aa0d9eaec252be3720c35647ef722ba69))
+
 ## [5.2.13](https://github.com/appium/appium-xcode/compare/v5.2.12...v5.2.13) (2024-05-16)
 
 
