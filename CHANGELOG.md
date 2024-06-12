@@ -1,3 +1,9 @@
+## [5.2.15](https://github.com/appium/appium-xcode/compare/v5.2.14...v5.2.15) (2024-06-12)
+
+### Miscellaneous Chores
+
+* **deps:** bump @appium/support from 4.5.0 to 5.0.3 ([#142](https://github.com/appium/appium-xcode/issues/142)) ([9aa8f46](https://github.com/appium/appium-xcode/commit/9aa8f46305fce661fcf950760ecbe6a0b54df2e2))
+
 ## [5.2.14](https://github.com/appium/appium-xcode/compare/v5.2.13...v5.2.14) (2024-06-03)
 
 ### Miscellaneous Chores
