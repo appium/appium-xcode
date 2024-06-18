@@ -1,3 +1,9 @@
+## [5.2.16](https://github.com/appium/appium-xcode/compare/v5.2.15...v5.2.16) (2024-06-18)
+
+### Miscellaneous Chores
+
+* Bump chai and chai-as-promised ([#143](https://github.com/appium/appium-xcode/issues/143)) ([96097db](https://github.com/appium/appium-xcode/commit/96097db5e1a32f1c1a11522f7c4b057f16b7e9c7))
+
 ## [5.2.15](https://github.com/appium/appium-xcode/compare/v5.2.14...v5.2.15) (2024-06-12)
 
 ### Miscellaneous Chores
