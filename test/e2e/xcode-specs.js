@@ -1,16 +1,23 @@
 import * as xcode from '../../lib/xcode';
-import chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
 import { fs, util } from '@appium/support';
 import _ from 'lodash';
 
 
-let should = chai.should();
-chai.use(chaiAsPromised);
-
 describe('xcode @skip-linux', function () {
   // on slow machines and busy CI systems these can be slow and flakey
   this.timeout(30000);
+
+  let chai;
+  let chaiAsPromised;
+  let should;
+
+  before(async function() {
+    chai = await import('chai');
+    chaiAsPromised = await import('chai-as-promised');
+
+    should = chai.should();
+    chai.use(chaiAsPromised.default);
+  });
 
   describe('getPath', function () {
     it('should get the path to xcode from xcode-select', async function () {
