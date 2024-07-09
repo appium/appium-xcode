@@ -1,3 +1,9 @@
+## [5.2.17](https://github.com/appium/appium-xcode/compare/v5.2.16...v5.2.17) (2024-07-09)
+
+### Miscellaneous Chores
+
+* Remove extra import ([03ec545](https://github.com/appium/appium-xcode/commit/03ec545f294b4fc84dd2877349d059eb94933525))
+
 ## [5.2.16](https://github.com/appium/appium-xcode/compare/v5.2.15...v5.2.16) (2024-06-18)
 
 ### Miscellaneous Chores
