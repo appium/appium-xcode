@@ -1,3 +1,9 @@
+## [5.2.18](https://github.com/appium/appium-xcode/compare/v5.2.17...v5.2.18) (2024-08-01)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 20.14.13 to 22.0.2 ([#145](https://github.com/appium/appium-xcode/issues/145)) ([ca1a8a2](https://github.com/appium/appium-xcode/commit/ca1a8a2f8947e15c7cf7acdfcda2ab43ce0b8163))
+
 ## [5.2.17](https://github.com/appium/appium-xcode/compare/v5.2.16...v5.2.17) (2024-07-09)
 
 ### Miscellaneous Chores
