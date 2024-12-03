@@ -1,3 +1,9 @@
+## [5.2.19](https://github.com/appium/appium-xcode/compare/v5.2.18...v5.2.19) (2024-12-03)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump mocha from 10.8.2 to 11.0.1 ([#147](https://github.com/appium/appium-xcode/issues/147)) ([d84ee32](https://github.com/appium/appium-xcode/commit/d84ee32c35231b1e0904fa683ccc75a9d4420660))
+
 ## [5.2.18](https://github.com/appium/appium-xcode/compare/v5.2.17...v5.2.18) (2024-08-01)
 
 ### Miscellaneous Chores
