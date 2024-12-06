@@ -27,7 +27,7 @@
     "CHANGELOG.md"
   ],
   "dependencies": {
-    "@appium/support": "^5.0.3",
+    "@appium/support": "^6.0.0",
     "@types/lodash": "^4.14.192",
     "@types/teen_process": "^2.0.0",
     "asyncbox": "^3.0.0",
