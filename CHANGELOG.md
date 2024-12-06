@@ -1,3 +1,9 @@
+## [5.2.20](https://github.com/appium/appium-xcode/compare/v5.2.19...v5.2.20) (2024-12-06)
+
+### Miscellaneous Chores
+
+* **deps:** bump @appium/support from 5.1.8 to 6.0.0 ([#148](https://github.com/appium/appium-xcode/issues/148)) ([f7c3ec7](https://github.com/appium/appium-xcode/commit/f7c3ec71df23c168c90ecdfa6089c3d3b4c45125))
+
 ## [5.2.19](https://github.com/appium/appium-xcode/compare/v5.2.18...v5.2.19) (2024-12-03)
 
 ### Miscellaneous Chores
