@@ -2,12 +2,10 @@ import xcode from '../../lib/index';
 
 describe('index', function () {
   let chai;
-  let should;
 
   before(async function() {
     chai = await import('chai');
-
-    should = chai.should();
+    chai.should();
   });
 
 
