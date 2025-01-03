@@ -1,3 +1,9 @@
+## [5.2.21](https://github.com/appium/appium-xcode/compare/v5.2.20...v5.2.21) (2025-01-03)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @appium/eslint-config-appium-ts from 0.3.3 to 1.0.1 ([#149](https://github.com/appium/appium-xcode/issues/149)) ([0e596c4](https://github.com/appium/appium-xcode/commit/0e596c4a9c5d60e5535f7541013293a005e702aa))
+
 ## [5.2.20](https://github.com/appium/appium-xcode/compare/v5.2.19...v5.2.20) (2024-12-06)
 
 ### Miscellaneous Chores
