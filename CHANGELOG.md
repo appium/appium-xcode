@@ -1,3 +1,9 @@
+## [5.2.22](https://github.com/appium/appium-xcode/compare/v5.2.21...v5.2.22) (2025-05-20)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([#151](https://github.com/appium/appium-xcode/issues/151)) ([20d2838](https://github.com/appium/appium-xcode/commit/20d28388ead2ddefbcd002d92e2d982b568c4bc1))
+
 ## [5.2.21](https://github.com/appium/appium-xcode/compare/v5.2.20...v5.2.21) (2025-01-03)
 
 ### Miscellaneous Chores
