@@ -1,3 +1,14 @@
+## [6.0.0](https://github.com/appium/appium-xcode/compare/v5.2.23...v6.0.0) (2025-08-16)
+
+### ⚠ BREAKING CHANGES
+
+* Required Node.js version has been bumped to ^20.19.0 || ^22.12.0 || >=24.0.0
+* Required npm version has been bumped to >=10
+
+### Features
+
+* Bump Node.js version ([#153](https://github.com/appium/appium-xcode/issues/153)) ([433978d](https://github.com/appium/appium-xcode/commit/433978dc9188bff15b9298dea0ee4ac866c5e484))
+
 ## [5.2.23](https://github.com/appium/appium-xcode/compare/v5.2.22...v5.2.23) (2025-06-10)
 
 ### Miscellaneous Chores

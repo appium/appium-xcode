@@ -6,7 +6,7 @@
     "ios",
     "xcode"
   ],
-  "version": "5.2.23",
+  "version": "6.0.0",
   "author": "Appium Contributors",
   "license": "Apache-2.0",
   "repository": {
@@ -55,14 +55,14 @@
   "devDependencies": {
     "@appium/eslint-config-appium-ts": "^2.0.0-rc.1",
     "@appium/tsconfig": "^1.0.0-rc.1",
-    "@appium/types": "^1.0.0-rc.1",    
+    "@appium/types": "^1.0.0-rc.1",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@types/bluebird": "^3.5.38",
     "@types/lodash": "^4.14.196",
     "@types/mocha": "^10.0.1",
     "@types/node": "^24.0.0",
-    "@types/teen_process": "^2.0.1",    
+    "@types/teen_process": "^2.0.1",
     "chai": "^5.1.1",
     "chai-as-promised": "^8.0.0",
     "conventional-changelog-conventionalcommits": "^9.0.0",
