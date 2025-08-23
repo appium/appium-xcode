@@ -1,3 +1,9 @@
+## [6.0.1](https://github.com/appium/appium-xcode/compare/v6.0.0...v6.0.1) (2025-08-23)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump chai from 5.3.2 to 6.0.0 ([#154](https://github.com/appium/appium-xcode/issues/154)) ([b4420bf](https://github.com/appium/appium-xcode/commit/b4420bfbacea27a57d7f5a26dceb45d2a28d089e))
+
 ## [6.0.0](https://github.com/appium/appium-xcode/compare/v5.2.23...v6.0.0) (2025-08-16)
 
 ### ⚠ BREAKING CHANGES
