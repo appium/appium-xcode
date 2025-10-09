@@ -1,3 +1,9 @@
+## [6.0.2](https://github.com/appium/appium-xcode/compare/v6.0.1...v6.0.2) (2025-10-09)
+
+### Bug Fixes
+
+* Throw a proper error instance if xcode path detection fails ([#155](https://github.com/appium/appium-xcode/issues/155)) ([7dcf54d](https://github.com/appium/appium-xcode/commit/7dcf54d598cdbb45ba5cbb5403bb01de9c605036))
+
 ## [6.0.1](https://github.com/appium/appium-xcode/compare/v6.0.0...v6.0.1) (2025-08-23)
 
 ### Miscellaneous Chores
