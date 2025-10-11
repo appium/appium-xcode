@@ -24,5 +24,5 @@ export {
 };
 export default xcode;
 
-export type { XcodeVersion } from './xcode';
+export type { XcodeVersion } from './types';
 

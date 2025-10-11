@@ -7,20 +7,12 @@ import * as semver from 'semver';
 import {
   runXcrunCommand, findAppPaths, XCRUN_TIMEOUT, readXcodePlist
 } from './helpers';
+import type { XcodeVersion } from './types';
 
 const DEFAULT_NUMBER_OF_RETRIES = 2;
 const XCODE_BUNDLE_ID = 'com.apple.dt.Xcode';
 
 const log = logger.getLogger('Xcode');
-
-export interface XcodeVersion {
-  versionString: string;
-  versionFloat: number;
-  major: number;
-  minor: number;
-  patch?: number;
-  toString(): string;
-}
 
 /**
  * Retrieves the full path to Xcode Developer subfolder via xcode-select
