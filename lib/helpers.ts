@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import B from 'bluebird';
-import { exec, TeenProcessExecResult } from 'teen_process';
+import { exec } from 'teen_process';
+import type { TeenProcessExecResult } from 'teen_process';
 import { fs, plist } from '@appium/support';
 import path from 'node:path';
 
