@@ -24,6 +24,5 @@ export {
 };
 export default xcode;
 
-/**
- * @typedef {import('./xcode').XcodeVersion} XcodeVersion
- */
+export type { XcodeVersion } from './xcode';
+

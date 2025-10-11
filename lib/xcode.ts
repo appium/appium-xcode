@@ -1,5 +1,5 @@
 import { fs, logger } from '@appium/support';
-import path from 'path';
+import path from 'node:path';
 import { retry } from 'asyncbox';
 import _ from 'lodash';
 import { exec } from 'teen_process';
@@ -13,19 +13,24 @@ const XCODE_BUNDLE_ID = 'com.apple.dt.Xcode';
 
 const log = logger.getLogger('Xcode');
 
+export interface XcodeVersion {
+  versionString: string;
+  versionFloat: number;
+  major: number;
+  minor: number;
+  patch?: number;
+  toString(): string;
+}
+
 /**
  * Retrieves the full path to Xcode Developer subfolder via xcode-select
  *
- * @param {number} timeout The maximum timeout for xcode-select execution
- * @returns {Promise<string>} Full path to Xcode Developer subfolder
+ * @param timeout The maximum timeout for xcode-select execution
+ * @returns Full path to Xcode Developer subfolder
  * @throws {Error} If it is not possible to retrieve a proper path
  */
-async function getPathFromXcodeSelect (timeout = XCRUN_TIMEOUT) {
-  /**
-   * @param {string} prefix
-   * @returns {Promise<string>}
-   */
-  const generateErrorMessage = async (prefix) => {
+export async function getPathFromXcodeSelect(timeout: number = XCRUN_TIMEOUT): Promise<string> {
+  const generateErrorMessage = async (prefix: string): Promise<string> => {
     const xcodePaths = await findAppPaths(XCODE_BUNDLE_ID);
     if (_.isEmpty(xcodePaths)) {
       return `${prefix}. Consider installing Xcode to address this issue.`;
@@ -36,7 +41,7 @@ async function getPathFromXcodeSelect (timeout = XCRUN_TIMEOUT) {
       `Consider running${proposals.length > 1 ? ' any of' : ''}:\n${proposals.join('\n')}\nto address this issue.`;
   };
 
-  let stdout;
+  let stdout: string;
   try {
     ({stdout} = await exec('xcode-select', ['--print-path'], {timeout}));
   } catch (e) {
@@ -63,12 +68,16 @@ async function getPathFromXcodeSelect (timeout = XCRUN_TIMEOUT) {
 /**
  * Retrieves the full path to Xcode Developer subfolder via `DEVELOPER_DIR` environment variable
  *
- * @returns {Promise<string>} Full path to Xcode Developer subfolder
+ * @returns Full path to Xcode Developer subfolder
  * @throws {Error} If it is not possible to retrieve a proper path
  * @privateRemarks This method assumes `DEVELOPER_DIR` is defined.
  */
-async function getPathFromDeveloperDir () {
-  const developerRoot = /** @type {string} */(process.env.DEVELOPER_DIR);
+export async function getPathFromDeveloperDir(): Promise<string> {
+  const developerRoot = process.env.DEVELOPER_DIR as string;
+  if (!developerRoot) {
+    throw new Error('DEVELOPER_DIR environment variable is not set');
+  }
+
   const {CFBundleIdentifier} = await readXcodePlist(developerRoot);
   if (CFBundleIdentifier === XCODE_BUNDLE_ID) {
     return developerRoot;
@@ -84,66 +93,28 @@ async function getPathFromDeveloperDir () {
 /**
  * Retrieves the full path to Xcode Developer subfolder.
  * If `DEVELOPER_DIR` environment variable is provided then its value has a priority.
- * @param {number} timeout The maximum timeout for xcode-select execution
- * @returns {Promise<string>} Full path to Xcode Developer subfolder timeout
+ * @param timeout The maximum timeout for xcode-select execution
+ * @returns Full path to Xcode Developer subfolder timeout
  * @throws {Error} If there was an error while retrieving the path.
  */
-const getPath = _.memoize(
-  /**
-   * @param {number} timeout
-   * @returns {Promise<string>}
-   */
-  (timeout = XCRUN_TIMEOUT) => process.env.DEVELOPER_DIR ? getPathFromDeveloperDir() : getPathFromXcodeSelect(timeout));
-
-/**
- * Retrieves Xcode version
- *
- * @param {number} timeout [15000] Timeout of milliseconds to wait for terminal commands.
- * @returns {Promise<import("semver").SemVer | null>} Xcode version
- * @throws {Error} If there was a failure while retrieving the version
- */
-async function getVersionWithoutRetry (timeout = XCRUN_TIMEOUT) {
-  const developerPath = await getPath(timeout);
-  // we want to read the CFBundleShortVersionString from Xcode's plist.
-  const {CFBundleShortVersionString} = await readXcodePlist(developerPath);
-  return semver.coerce(CFBundleShortVersionString);
-}
-
-/**
- * Retrieves Xcode version or the cached one if called more than once
- *
- * @param {number} retries  How many retries to apply for version retrieval
- * @param {number} timeout Timeout of milliseconds to wait for terminal commands
- * @returns {Promise<import("semver").SemVer | null>} Xcode version
- * @throws {Error} If there was a failure while retrieving the version
- */
-const getVersionMemoized = _.memoize(
-  function getVersionMemoized (retries = DEFAULT_NUMBER_OF_RETRIES, timeout = XCRUN_TIMEOUT) {
-    return retry(retries, getVersionWithoutRetry, timeout);
-  }
+export const getPath = _.memoize(
+  (timeout: number = XCRUN_TIMEOUT): Promise<string> =>
+    process.env.DEVELOPER_DIR ? getPathFromDeveloperDir() : getPathFromXcodeSelect(timeout)
 );
 
 /**
- * @typedef {Object} XcodeVersion
- * @property {string} versionString Xcode version as a string
- * @property {number} versionFloat Xcode version as a float number
- * @property {number} major Major number of Xcode version
- * @property {number} minor Minor number of Xcode version
- * @property {number} [patch] Patch number of Xcode version (if exists)
- * @property {() => string} toString Returns Xcode version as a string
- */
-
-/**
  * Retrieves Xcode version
  *
- * @param {boolean} parse [false] Whether to parse the version to a XcodeVersion version
- * @param {number} retries [2] How many retries to apply for getting the version number
- * @param {number} timeout [15000] Timeout of milliseconds to wait for terminal commands
- * @returns {Promise<XcodeVersion | string>} Xcode version depending on the value of `parse` flag
+ * @param parse Whether to parse the version to a XcodeVersion version
+ * @param retries How many retries to apply for getting the version number
+ * @param timeout Timeout of milliseconds to wait for terminal commands
+ * @returns Xcode version depending on the value of `parse` flag
  * @throws {Error} If there was a failure while retrieving the version
  */
-async function getVersion (parse = false, retries = DEFAULT_NUMBER_OF_RETRIES, timeout = XCRUN_TIMEOUT) {
-  const version = /** @type {import('semver').SemVer} */(await getVersionMemoized(retries, timeout));
+export async function getVersion(parse: false, retries?: number, timeout?: number): Promise<string>;
+export async function getVersion(parse: true, retries?: number, timeout?: number): Promise<XcodeVersion>;
+export async function getVersion(parse: boolean = false, retries: number = DEFAULT_NUMBER_OF_RETRIES, timeout: number = XCRUN_TIMEOUT): Promise<string | XcodeVersion> {
+  const version = await getVersionMemoized(retries, timeout) as semver.SemVer;
   // xcode version strings are not exactly semver string: patch versions of 0
   // are removed (e.g., '10.0.0' => '10.0')
   const versionString = version.patch > 0 ? version.version : `${version.major}.${version.minor}`;
@@ -157,7 +128,7 @@ async function getVersion (parse = false, retries = DEFAULT_NUMBER_OF_RETRIES, t
     major: version.major,
     minor: version.minor,
     patch: version.patch > 0 ? version.patch : undefined,
-    toString () {
+    toString() {
       return versionString;
     },
   };
@@ -167,11 +138,11 @@ async function getVersion (parse = false, retries = DEFAULT_NUMBER_OF_RETRIES, t
  * Check https://trac.macports.org/wiki/XcodeVersionInfo
  * to see the actual mapping between clang and other components.
  *
- * @returns {Promise<string|null>} The actual Clang version in x.x.x.x or x.x.x format,
+ * @returns The actual Clang version in x.x.x.x or x.x.x format,
  * which is supplied with Command Line Tools. `null` is returned
  * if CLT are not installed.
  */
-async function getClangVersion () {
+export async function getClangVersion(): Promise<string | null> {
   try {
     await fs.which('clang');
   } catch {
@@ -191,11 +162,11 @@ async function getClangVersion () {
 /**
  * Retrieves the maximum version of iOS SDK supported by the installed Xcode
  *
- * @param {number} timeout [15000] Timeout of milliseconds to wait for terminal commands
- * @returns {Promise<string>} The SDK version
+ * @param timeout Timeout of milliseconds to wait for terminal commands
+ * @returns The SDK version
  * @throws {Error} If the SDK version number cannot be determined
  */
-async function getMaxIOSSDKWithoutRetry (timeout = XCRUN_TIMEOUT) {
+export async function getMaxIOSSDKWithoutRetry(timeout: number = XCRUN_TIMEOUT): Promise<string> {
   const args = ['--sdk', 'iphonesimulator', '--show-sdk-version'];
   const {stdout} = await runXcrunCommand(args, timeout);
   const sdkVersion = stdout.trim();
@@ -209,13 +180,13 @@ async function getMaxIOSSDKWithoutRetry (timeout = XCRUN_TIMEOUT) {
 /**
  * Retrieves the maximum version of iOS SDK supported by the installed Xcode
  *
- * @param {number} timeout Timeout of milliseconds to wait for terminal commands
- * @param {number} retries The maximum number of retries
- * @returns {string} The SDK version
+ * @param retries The maximum number of retries
+ * @param timeout Timeout of milliseconds to wait for terminal commands
+ * @returns The SDK version
  * @throws {Error} If the SDK version number cannot be determined
  */
-const getMaxIOSSDK = _.memoize(
-  function getMaxIOSSDK (retries = DEFAULT_NUMBER_OF_RETRIES, timeout = XCRUN_TIMEOUT) {
+export const getMaxIOSSDK = _.memoize(
+  function getMaxIOSSDK(retries: number = DEFAULT_NUMBER_OF_RETRIES, timeout: number = XCRUN_TIMEOUT) {
     return retry(retries, getMaxIOSSDKWithoutRetry, timeout);
   }
 );
@@ -223,11 +194,11 @@ const getMaxIOSSDK = _.memoize(
 /**
  * Retrieves the maximum version of tvOS SDK supported by the installed Xcode
  *
- * @param {number} timeout Timeout of milliseconds to wait for terminal commands
- * @returns {Promise<string>} The SDK version
+ * @param timeout Timeout of milliseconds to wait for terminal commands
+ * @returns The SDK version
  * @throws {Error} If the SDK version number cannot be determined
  */
-async function getMaxTVOSSDKWithoutRetry (timeout = XCRUN_TIMEOUT) {
+export async function getMaxTVOSSDKWithoutRetry(timeout: number = XCRUN_TIMEOUT): Promise<string> {
   const args = ['--sdk', 'appletvsimulator', '--show-sdk-version'];
   const {stdout} = await runXcrunCommand(args, timeout);
   const sdkVersion = stdout.trim();
@@ -240,21 +211,43 @@ async function getMaxTVOSSDKWithoutRetry (timeout = XCRUN_TIMEOUT) {
 /**
  * Retrieves the maximum version of tvOS SDK supported by the installed Xcode
  *
+ * @param timeout Timeout of milliseconds to wait for terminal commands
+ * @param retries The maximum number of retries
+ * @returns The SDK version
  * @throws {Error} If the SDK version number cannot be determined
  */
-const getMaxTVOSSDK = _.memoize(
-  /**
-   * @param {number} timeout Timeout of milliseconds to wait for terminal commands
-   * @param {number} retries The maximum number of retries
-   * @returns {Promise<string>} The SDK version
-   */
-  async function getMaxTVOSSDK (retries = DEFAULT_NUMBER_OF_RETRIES, timeout = XCRUN_TIMEOUT) {
-    return /** @type {string} */(await retry(retries, getMaxTVOSSDKWithoutRetry, timeout));
+export const getMaxTVOSSDK = _.memoize(
+  async function getMaxTVOSSDK(retries: number = DEFAULT_NUMBER_OF_RETRIES, timeout: number = XCRUN_TIMEOUT): Promise<string> {
+    return await retry(retries, getMaxTVOSSDKWithoutRetry, timeout) as string;
   }
 );
 
-export {
-  getPath, getVersion, getMaxIOSSDK, getMaxIOSSDKWithoutRetry,
-  getMaxTVOSSDK, getMaxTVOSSDKWithoutRetry, getClangVersion,
-  getPathFromDeveloperDir, getPathFromXcodeSelect,
-};
+// Private helper functions
+
+/**
+ * Retrieves Xcode version
+ *
+ * @param timeout Timeout of milliseconds to wait for terminal commands.
+ * @returns Xcode version
+ * @throws {Error} If there was a failure while retrieving the version
+ */
+async function getVersionWithoutRetry(timeout: number = XCRUN_TIMEOUT): Promise<semver.SemVer | null> {
+  const developerPath = await getPath(timeout);
+  // we want to read the CFBundleShortVersionString from Xcode's plist.
+  const {CFBundleShortVersionString} = await readXcodePlist(developerPath);
+  return semver.coerce(CFBundleShortVersionString);
+}
+
+/**
+ * Retrieves Xcode version or the cached one if called more than once
+ *
+ * @param retries  How many retries to apply for version retrieval
+ * @param timeout Timeout of milliseconds to wait for terminal commands
+ * @returns Xcode version
+ * @throws {Error} If there was a failure while retrieving the version
+ */
+const getVersionMemoized = _.memoize(
+  function getVersionMemoized(retries: number = DEFAULT_NUMBER_OF_RETRIES, timeout: number = XCRUN_TIMEOUT): Promise<semver.SemVer | null> {
+    return retry(retries, getVersionWithoutRetry, timeout);
+  }
+);
