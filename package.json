@@ -21,6 +21,7 @@
     "npm": ">=10"
   },
   "main": "./build/lib/index.js",
+  "types": "./build/lib/index.d.ts",
   "files": [
     "lib",
     "build/lib",
@@ -71,6 +72,5 @@
     "semantic-release": "^24.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.4.2"
-  },
-  "types": "./build/lib/index.d.ts"
+  }
 }
