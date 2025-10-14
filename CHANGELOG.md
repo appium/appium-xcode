@@ -1,3 +1,9 @@
+## [6.1.0](https://github.com/appium/appium-xcode/compare/v6.0.2...v6.1.0) (2025-10-14)
+
+### Features
+
+* Port to typescript ([#156](https://github.com/appium/appium-xcode/issues/156)) ([c17d76b](https://github.com/appium/appium-xcode/commit/c17d76b199c91bf4009bfefc27e6e1098f526386))
+
 ## [6.0.2](https://github.com/appium/appium-xcode/compare/v6.0.1...v6.0.2) (2025-10-09)
 
 ### Bug Fixes
