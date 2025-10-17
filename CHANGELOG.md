@@ -1,3 +1,9 @@
+## [6.1.1](https://github.com/appium/appium-xcode/compare/v6.1.0...v6.1.1) (2025-10-17)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump semantic-release from 24.2.9 to 25.0.0 ([#157](https://github.com/appium/appium-xcode/issues/157)) ([c254c5e](https://github.com/appium/appium-xcode/commit/c254c5e2c9d94e5089d4081838928fdcb3c4eceb))
+
 ## [6.1.0](https://github.com/appium/appium-xcode/compare/v6.0.2...v6.1.0) (2025-10-14)
 
 ### Features
