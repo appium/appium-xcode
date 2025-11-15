@@ -1,3 +1,9 @@
+## [6.1.2](https://github.com/appium/appium-xcode/compare/v6.1.1...v6.1.2) (2025-11-15)
+
+### Miscellaneous Chores
+
+* publish via trusted publisher ([#158](https://github.com/appium/appium-xcode/issues/158)) ([fc9109a](https://github.com/appium/appium-xcode/commit/fc9109a7fe3376f52773abb054b1be89e297e55d))
+
 ## [6.1.1](https://github.com/appium/appium-xcode/compare/v6.1.0...v6.1.1) (2025-10-17)
 
 ### Miscellaneous Chores
