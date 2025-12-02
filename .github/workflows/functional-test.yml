@@ -12,12 +12,12 @@ jobs:
     strategy:
       matrix:
         include:
-        - xcodeVersion: '14.3.1'
-          osVersion: macos-13
         - xcodeVersion: '15.4'
           osVersion: macos-14
-        - xcodeVersion: '16.0'
+        - xcodeVersion: '16.4'
           osVersion: macos-15
+        - xcodeVersion: '26.1'
+          osVersion: macos-26
 
     env:
       CI: true
