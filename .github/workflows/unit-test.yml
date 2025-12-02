@@ -2,7 +2,6 @@ name: Unit Tests
 
 on: [pull_request, push]
 
-
 jobs:
   prepare_matrix:
     runs-on: ubuntu-latest
@@ -12,7 +11,7 @@ jobs:
     - name: Select all current LTS versions of Node.js
       id: generate-matrix
       uses: msimerson/node-lts-versions@v1
-      
+
   test:
     needs:
     - prepare_matrix
@@ -21,13 +20,18 @@ jobs:
         node-version: ${{ fromJSON(needs.prepare_matrix.outputs.versions) }}
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - name: Checkout code
+      uses: actions/checkout@v6
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install --no-package-lock
-      name: Install dev dependencies
-    - run: npm run lint
-      name: Run linter
-    - run: npm run test
-      name: Run unit tests
+    - uses: SocketDev/action@v1
+      with:
+        mode: firewall-free
+    - name: Install dev dependencies
+      run: sfw npm install --no-package-lock
+    - name: Run linter
+      run: npm run lint
+    - name: Run unit tests
+      run: npm run test

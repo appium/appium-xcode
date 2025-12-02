@@ -2,10 +2,12 @@ name: Functional Tests
 
 on: [pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
-
     # https://github.com/actions/runner-images/tree/main/images/macos
     strategy:
       matrix:
@@ -23,15 +25,17 @@ jobs:
     # https://github.com/actions/runner-images/tree/main/images/macos
     runs-on: ${{ matrix.osVersion }}
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - name: Checkout code
+      uses: actions/checkout@v6
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
       with:
-        node-version: lts/*
-        check-latest: true
-    - uses: maxim-lobanov/setup-xcode@v1
+        node-version: 'lts/*'
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: "${{ matrix.xcodeVersion }}"
-    - run: npm install
-      name: Install dev dependencies
-    - run: npm run e2e-test
-      name: Run e2e tests on Xcode@${{ matrix.xcodeVersion }}
+    - name: Install dev dependencies
+      run: npm install
+    - name: Run e2e tests on Xcode@${{ matrix.xcodeVersion }}
+      run: npm run e2e-test
