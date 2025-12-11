@@ -1,3 +1,9 @@
+## [6.1.3](https://github.com/appium/appium-xcode/compare/v6.1.2...v6.1.3) (2025-12-11)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @types/node from 24.10.3 to 25.0.0 ([#162](https://github.com/appium/appium-xcode/issues/162)) ([92fe5a6](https://github.com/appium/appium-xcode/commit/92fe5a62375a9a034db83c2f5d80977f7ffd80f6))
+
 ## [6.1.2](https://github.com/appium/appium-xcode/compare/v6.1.1...v6.1.2) (2025-11-15)
 
 ### Miscellaneous Chores
