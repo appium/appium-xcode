@@ -1,3 +1,9 @@
+## [6.1.4](https://github.com/appium/appium-xcode/compare/v6.1.3...v6.1.4) (2025-12-12)
+
+### Miscellaneous Chores
+
+* **deps:** remove source-map-support ([#163](https://github.com/appium/appium-xcode/issues/163)) ([d3d15ec](https://github.com/appium/appium-xcode/commit/d3d15ec11aeac2b88f60fb52d3980b3ff933fb8b))
+
 ## [6.1.3](https://github.com/appium/appium-xcode/compare/v6.1.2...v6.1.3) (2025-12-11)
 
 ### Miscellaneous Chores
