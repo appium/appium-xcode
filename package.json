@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@appium/support": "^7.0.0-rc.1",
-    "asyncbox": "^3.0.0",
+    "asyncbox": "^4.0.1",
     "bluebird": "^3.7.2",
     "lodash": "^4.17.4",
     "plist": "^3.0.1",
