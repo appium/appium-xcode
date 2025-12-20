@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import B from 'bluebird';
 import { exec } from 'teen_process';
-import type { TeenProcessExecResult } from 'teen_process';
+import type { ExecResult } from 'teen_process';
 import { fs, plist } from '@appium/support';
 import path from 'node:path';
 
@@ -15,7 +15,7 @@ export const XCRUN_TIMEOUT = 15000;
  * @returns The result of xcrun execution
  * @throws {Error} If xcrun returned non-zero exit code or timed out
  */
-export async function runXcrunCommand(args: string[], timeout: number = XCRUN_TIMEOUT): Promise<TeenProcessExecResult<string>> {
+export async function runXcrunCommand(args: string[], timeout: number = XCRUN_TIMEOUT): Promise<ExecResult<false>> {
   try {
     return await exec('xcrun', args, {timeout});
   } catch (err) {
