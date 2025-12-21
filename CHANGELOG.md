@@ -1,3 +1,9 @@
+## [6.1.6](https://github.com/appium/appium-xcode/compare/v6.1.5...v6.1.6) (2025-12-21)
+
+### Miscellaneous Chores
+
+* bump teen_process ([#165](https://github.com/appium/appium-xcode/issues/165)) ([d6f2845](https://github.com/appium/appium-xcode/commit/d6f28458dd70c6ac255e485e6f83d15413e423ce))
+
 ## [6.1.5](https://github.com/appium/appium-xcode/compare/v6.1.4...v6.1.5) (2025-12-18)
 
 ### Miscellaneous Chores
