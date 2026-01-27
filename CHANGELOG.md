@@ -1,3 +1,9 @@
+## [6.1.7](https://github.com/appium/appium-xcode/compare/v6.1.6...v6.1.7) (2026-01-27)
+
+### Miscellaneous Chores
+
+* **deps:** bump asyncbox from 4.1.1 to 6.0.1 ([#168](https://github.com/appium/appium-xcode/issues/168)) ([b50857d](https://github.com/appium/appium-xcode/commit/b50857d6d4df1f24cece9575801e1e6ed303efa0))
+
 ## [6.1.6](https://github.com/appium/appium-xcode/compare/v6.1.5...v6.1.6) (2025-12-21)
 
 ### Miscellaneous Chores
