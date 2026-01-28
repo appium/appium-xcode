@@ -1,3 +1,9 @@
+## [6.1.8](https://github.com/appium/appium-xcode/compare/v6.1.7...v6.1.8) (2026-01-28)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump @appium/eslint-config-appium-ts ([#169](https://github.com/appium/appium-xcode/issues/169)) ([fb3b6ca](https://github.com/appium/appium-xcode/commit/fb3b6ca6d40f3459a33088bf2fca4e04b2d9a4fb))
+
 ## [6.1.7](https://github.com/appium/appium-xcode/compare/v6.1.6...v6.1.7) (2026-01-27)
 
 ### Miscellaneous Chores
