@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import B from 'bluebird';
-import { exec } from 'teen_process';
-import type { TeenProcessExecResult } from 'teen_process';
-import { fs, plist } from '@appium/support';
+import {exec} from 'teen_process';
+import type {TeenProcessExecResult} from 'teen_process';
+import {fs, plist} from '@appium/support';
 import path from 'node:path';
 
 export const XCRUN_TIMEOUT = 15000;
@@ -15,7 +15,10 @@ export const XCRUN_TIMEOUT = 15000;
  * @returns The result of xcrun execution
  * @throws {Error} If xcrun returned non-zero exit code or timed out
  */
-export async function runXcrunCommand(args: string[], timeout: number = XCRUN_TIMEOUT): Promise<TeenProcessExecResult<string>> {
+export async function runXcrunCommand(
+  args: string[],
+  timeout: number = XCRUN_TIMEOUT,
+): Promise<TeenProcessExecResult<string>> {
   try {
     return await exec('xcrun', args, {timeout});
   } catch (err) {
@@ -37,25 +40,22 @@ export async function runXcrunCommand(args: string[], timeout: number = XCRUN_TI
 export async function findAppPaths(bundleId: string): Promise<string[]> {
   let stdout: string;
   try {
-    ({stdout} = await exec('/usr/bin/mdfind', [
-      `kMDItemCFBundleIdentifier=${bundleId}`
-    ]));
+    ({stdout} = await exec('/usr/bin/mdfind', [`kMDItemCFBundleIdentifier=${bundleId}`]));
   } catch {
     return [];
   }
 
-  const matchedPaths = _.trim(stdout)
-    .split('\n')
-    .map(_.trim)
-    .filter(Boolean);
+  const matchedPaths = _.trim(stdout).split('\n').map(_.trim).filter(Boolean);
   if (_.isEmpty(matchedPaths)) {
     return [];
   }
-  const results = matchedPaths.map((p) => (async () => {
-    if (await fs.exists(p)) {
-      return p;
-    }
-  })());
+  const results = matchedPaths.map((p) =>
+    (async () => {
+      if (await fs.exists(p)) {
+        return p;
+      }
+    })(),
+  );
   return (await B.all(results)).filter(Boolean) as string[];
 }
 
@@ -67,7 +67,5 @@ export async function findAppPaths(bundleId: string): Promise<string[]> {
  */
 export async function readXcodePlist(developerRoot: string): Promise<Record<string, any>> {
   const plistPath = path.resolve(developerRoot, '..', 'Info.plist');
-  return await fs.exists(plistPath)
-    ? await plist.parsePlistFile(plistPath)
-    : {};
+  return (await fs.exists(plistPath)) ? await plist.parsePlistFile(plistPath) : {};
 }

@@ -1,7 +1,6 @@
 import * as xcode from '../../lib/xcode';
-import { fs, util } from '@appium/support';
+import {fs, util} from '@appium/support';
 import _ from 'lodash';
-
 
 describe('xcode @skip-linux', function () {
   // on slow machines and busy CI systems these can be slow and flakey
@@ -11,7 +10,7 @@ describe('xcode @skip-linux', function () {
   let chaiAsPromised;
   let should;
 
-  before(async function() {
+  before(async function () {
     chai = await import('chai');
     chaiAsPromised = await import('chai-as-promised');
 
@@ -56,7 +55,7 @@ describe('xcode @skip-linux', function () {
     let versionRE = /\d\.\d\.*\d*/;
 
     it('should get the version of xcode', async function () {
-      let version = /** @type {string} */(await xcode.getVersion());
+      let version = /** @type {string} */ (await xcode.getVersion());
       should.exist(version);
       _.isString(version).should.be.true;
       versionRE.test(version).should.be.true;
@@ -75,7 +74,7 @@ describe('xcode @skip-linux', function () {
       (after - before).should.be.at.most(2);
 
       before = Number(new Date());
-      let version = /** @type {string} */(await xcode.getVersion());
+      let version = /** @type {string} */ (await xcode.getVersion());
       after = Number(new Date());
 
       should.exist(version);
@@ -86,7 +85,9 @@ describe('xcode @skip-linux', function () {
 
     it('should get the parsed version', async function () {
       let nonParsedVersion = await xcode.getVersion();
-      let version = /** @type {import('../../lib/xcode').XcodeVersion} */(await xcode.getVersion(true));
+      let version = /** @type {import('../../lib/xcode').XcodeVersion} */ (
+        await xcode.getVersion(true)
+      );
       should.exist(version);
       _.isString(version.versionString).should.be.true;
       version.versionString.should.eql(nonParsedVersion);
@@ -99,7 +100,7 @@ describe('xcode @skip-linux', function () {
 
   it('should get clang version', async function () {
     const cliVersion = await xcode.getClangVersion();
-    _.isString(util.coerceVersion(/** @type {string} */(cliVersion), true)).should.be.true;
+    _.isString(util.coerceVersion(/** @type {string} */ (cliVersion), true)).should.be.true;
   });
 
   it('should get max iOS SDK version', async function () {

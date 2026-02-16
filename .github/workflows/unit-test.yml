@@ -27,5 +27,7 @@ jobs:
       run: sfw npm install --no-package-lock
     - name: Run linter
       run: npm run lint
+    - run: npm run format:check
+      name: Run Prettier check
     - name: Run unit tests
       run: npm run test

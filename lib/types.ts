@@ -6,4 +6,3 @@ export interface XcodeVersion {
   patch?: number;
   toString(): string;
 }
-
