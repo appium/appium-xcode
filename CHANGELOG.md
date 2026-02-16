@@ -1,3 +1,9 @@
+## [6.1.9](https://github.com/appium/appium-xcode/compare/v6.1.8...v6.1.9) (2026-02-16)
+
+### Bug Fixes
+
+* format ([#170](https://github.com/appium/appium-xcode/issues/170)) ([f15eef3](https://github.com/appium/appium-xcode/commit/f15eef36c6b6722cdfb05ad26dbf637a3f8d50c2))
+
 ## [6.1.8](https://github.com/appium/appium-xcode/compare/v6.1.7...v6.1.8) (2026-01-28)
 
 ### Miscellaneous Chores
