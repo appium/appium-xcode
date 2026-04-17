@@ -1,3 +1,9 @@
+## [6.1.10](https://github.com/appium/appium-xcode/compare/v6.1.9...v6.1.10) (2026-04-17)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump typescript from 5.9.3 to 6.0.2 ([#171](https://github.com/appium/appium-xcode/issues/171)) ([be3f3e9](https://github.com/appium/appium-xcode/commit/be3f3e9fc50e336f5806dc20731a6bd12ca00c1a))
+
 ## [6.1.9](https://github.com/appium/appium-xcode/compare/v6.1.8...v6.1.9) (2026-02-16)
 
 ### Bug Fixes
