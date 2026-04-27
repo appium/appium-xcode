@@ -1,36 +1,27 @@
 import * as xcode from '../../lib/xcode';
 import {fs, util} from '@appium/support';
-import _ from 'lodash';
+import {expect, use} from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+
+use(chaiAsPromised);
 
 describe('xcode @skip-linux', function () {
   // on slow machines and busy CI systems these can be slow and flakey
   this.timeout(30000);
 
-  let chai;
-  let chaiAsPromised;
-  let should;
-
-  before(async function () {
-    chai = await import('chai');
-    chaiAsPromised = await import('chai-as-promised');
-
-    should = chai.should();
-    chai.use(chaiAsPromised.default);
-  });
-
   describe('getPath', function () {
     it('should get the path to xcode from xcode-select', async function () {
-      const path = await xcode.getPathFromXcodeSelect();
-      should.exist(path);
-      await fs.exists(path);
+      const xcodePath = await xcode.getPathFromXcodeSelect();
+      expect(xcodePath).to.exist;
+      await fs.exists(xcodePath);
     });
 
     it('should get the path to xcode if provided in DEVELOPER_DIR', async function () {
       process.env.DEVELOPER_DIR = await xcode.getPathFromXcodeSelect();
       try {
-        const path = await xcode.getPathFromDeveloperDir();
-        should.exist(path);
-        await fs.exists(path);
+        const xcodePath = await xcode.getPathFromDeveloperDir();
+        expect(xcodePath).to.exist;
+        await fs.exists(xcodePath);
       } finally {
         delete process.env.DEVELOPER_DIR;
       }
@@ -39,15 +30,15 @@ describe('xcode @skip-linux', function () {
     it('should fail if the path to xcode provided in DEVELOPER_DIR is wrong', async function () {
       process.env.DEVELOPER_DIR = 'yolo';
       try {
-        await xcode.getPathFromDeveloperDir().should.eventually.be.rejected;
+        await expect(xcode.getPathFromDeveloperDir()).to.be.rejected;
       } finally {
         delete process.env.DEVELOPER_DIR;
       }
     });
 
     it('should get the path to xcode', async function () {
-      const path = await xcode.getPath();
-      path.should.eql(await xcode.getPathFromXcodeSelect());
+      const xcodePath = await xcode.getPath();
+      expect(xcodePath).to.eql(await xcode.getPathFromXcodeSelect());
     });
   });
 
@@ -55,10 +46,10 @@ describe('xcode @skip-linux', function () {
     let versionRE = /\d\.\d\.*\d*/;
 
     it('should get the version of xcode', async function () {
-      let version = /** @type {string} */ (await xcode.getVersion());
-      should.exist(version);
-      _.isString(version).should.be.true;
-      versionRE.test(version).should.be.true;
+      const version = await xcode.getVersion();
+      expect(version).to.exist;
+      expect(version).to.be.a('string');
+      expect(versionRE.test(version)).to.be.true;
     });
 
     it('should get the path and version again, these values are cached', async function () {
@@ -66,55 +57,54 @@ describe('xcode @skip-linux', function () {
       await xcode.getVersion();
 
       let before = Number(new Date());
-      let path = await xcode.getPath();
+      const path = await xcode.getPath();
       let after = Number(new Date());
 
-      should.exist(path);
+      expect(path).to.exist;
       await fs.exists(path);
-      (after - before).should.be.at.most(2);
+      expect(after - before).to.be.at.most(2);
 
       before = Number(new Date());
-      let version = /** @type {string} */ (await xcode.getVersion());
+      const version = await xcode.getVersion();
       after = Number(new Date());
 
-      should.exist(version);
-      _.isString(version).should.be.true;
-      versionRE.test(version).should.be.true;
-      (after - before).should.be.at.most(2);
+      expect(version).to.exist;
+      expect(version).to.be.a('string');
+      expect(versionRE.test(version)).to.be.true;
+      expect(after - before).to.be.at.most(2);
     });
 
     it('should get the parsed version', async function () {
-      let nonParsedVersion = await xcode.getVersion();
-      let version = /** @type {import('../../lib/xcode').XcodeVersion} */ (
-        await xcode.getVersion(true)
-      );
-      should.exist(version);
-      _.isString(version.versionString).should.be.true;
-      version.versionString.should.eql(nonParsedVersion);
+      const nonParsedVersion = await xcode.getVersion();
+      const version = await xcode.getVersion(true);
+      expect(version).to.exist;
+      expect(version.versionString).to.be.a('string');
+      expect(version.versionString).to.eql(nonParsedVersion);
 
-      parseFloat(String(version.versionFloat)).should.equal(version.versionFloat);
-      parseInt(String(version.major), 10).should.equal(version.major);
-      parseInt(String(version.minor), 10).should.equal(version.minor);
+      expect(parseFloat(String(version.versionFloat))).to.equal(version.versionFloat);
+      expect(parseInt(String(version.major), 10)).to.equal(version.major);
+      expect(parseInt(String(version.minor), 10)).to.equal(version.minor);
     });
   });
 
   it('should get clang version', async function () {
     const cliVersion = await xcode.getClangVersion();
-    _.isString(util.coerceVersion(/** @type {string} */ (cliVersion), true)).should.be.true;
+    expect(cliVersion).to.exist;
+    expect(util.coerceVersion(cliVersion, true)).to.be.a('string');
   });
 
   it('should get max iOS SDK version', async function () {
-    let version = await xcode.getMaxIOSSDK();
+    const version = await xcode.getMaxIOSSDK();
 
-    should.exist(version);
-    (typeof version).should.equal('string');
-    (parseFloat(String(version)) - 6.1).should.be.at.least(0);
+    expect(version).to.exist;
+    expect(version).to.be.a('string');
+    expect(parseFloat(String(version)) - 6.1).to.be.at.least(0);
   });
 
   it('should get max tvOS SDK version', async function () {
-    let version = await xcode.getMaxTVOSSDK();
+    const version = await xcode.getMaxTVOSSDK();
 
-    should.exist(version);
-    (typeof version).should.equal('string');
+    expect(version).to.exist;
+    expect(version).to.be.a('string');
   });
 });

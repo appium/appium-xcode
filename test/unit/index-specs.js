@@ -1,14 +1,8 @@
 import xcode from '../../lib/index';
+import {expect} from 'chai';
 
 describe('index', function () {
-  let chai;
-
-  before(async function () {
-    chai = await import('chai');
-    chai.should();
-  });
-
   it('exported objects should exist', function () {
-    xcode.should.exist;
+    expect(xcode).to.exist;
   });
 });
