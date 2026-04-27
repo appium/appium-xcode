@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import B from 'bluebird';
 import {exec} from 'teen_process';
 import type {TeenProcessExecResult} from 'teen_process';
 import {fs, plist} from '@appium/support';
@@ -56,7 +55,7 @@ export async function findAppPaths(bundleId: string): Promise<string[]> {
       }
     })(),
   );
-  return (await B.all(results)).filter(Boolean) as string[];
+  return (await Promise.all(results)).filter(Boolean) as string[];
 }
 
 /**
