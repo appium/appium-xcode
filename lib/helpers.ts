@@ -1,11 +1,28 @@
-import _ from 'lodash';
-import B from 'bluebird';
 import {exec} from 'teen_process';
 import type {TeenProcessExecResult} from 'teen_process';
 import {fs, plist} from '@appium/support';
 import path from 'node:path';
 
 export const XCRUN_TIMEOUT = 15000;
+
+/**
+ * Memoizes function calls by caching results for serialized argument lists.
+ *
+ * @param fn The function to memoize
+ * @returns A memoized wrapper around the input function
+ */
+export function memoize<Args extends unknown[], Result>(
+  fn: (...args: Args) => Result,
+): (...args: Args) => Result {
+  const cache = new Map<string, Result>();
+  return (...args: Args): Result => {
+    const key = JSON.stringify(args);
+    if (!cache.has(key)) {
+      cache.set(key, fn(...args));
+    }
+    return cache.get(key) as Result;
+  };
+}
 
 /**
  * Executes 'xcrun' command line utility
@@ -45,8 +62,12 @@ export async function findAppPaths(bundleId: string): Promise<string[]> {
     return [];
   }
 
-  const matchedPaths = _.trim(stdout).split('\n').map(_.trim).filter(Boolean);
-  if (_.isEmpty(matchedPaths)) {
+  const matchedPaths = stdout
+    .trim()
+    .split('\n')
+    .map((p) => p.trim())
+    .filter(Boolean);
+  if (!matchedPaths.length) {
     return [];
   }
   const results = matchedPaths.map((p) =>
@@ -56,7 +77,7 @@ export async function findAppPaths(bundleId: string): Promise<string[]> {
       }
     })(),
   );
-  return (await B.all(results)).filter(Boolean) as string[];
+  return (await Promise.all(results)).filter(Boolean) as string[];
 }
 
 /**

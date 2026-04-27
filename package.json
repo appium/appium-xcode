@@ -30,9 +30,6 @@
   "dependencies": {
     "@appium/support": "^7.0.0-rc.1",
     "asyncbox": "^6.0.1",
-    "bluebird": "^3.7.2",
-    "lodash": "^4.17.4",
-    "plist": "^3.0.1",
     "semver": "^7.0.0",
     "teen_process": "^4.0.4"
   },
@@ -46,8 +43,8 @@
     "format": "prettier -w ./lib ./test",
     "format:check": "prettier --check ./lib ./test",
     "prepare": "npm run build",
-    "test": "mocha --exit --timeout 1m \"./test/unit/**/*-specs.js\"",
-    "e2e-test": "mocha --exit --timeout 5m \"./test/e2e/**/*-specs.js\""
+    "test": "mocha --exit --timeout 1m \"./test/unit/**/*-specs.ts\"",
+    "e2e-test": "mocha --exit --timeout 5m \"./test/e2e/**/*-specs.ts\""
   },
   "prettier": {
     "bracketSpacing": false,
@@ -60,8 +57,6 @@
     "@appium/types": "^1.0.0-rc.1",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@types/bluebird": "^3.5.38",
-    "@types/lodash": "^4.14.196",
     "@types/mocha": "^10.0.1",
     "@types/node": "^25.0.0",
     "chai": "^6.0.0",

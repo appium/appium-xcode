@@ -3,7 +3,7 @@
   "extends": "@appium/tsconfig/tsconfig.json",
   "compilerOptions": {
     "outDir": "build",
-    "types": ["node"],
+    "types": ["node", "mocha"],
     "checkJs": true
   },
   "ts-node": {
@@ -13,6 +13,7 @@
     }
   },
   "include": [
-    "lib"
+    "lib",
+    "test"
   ]
 }
