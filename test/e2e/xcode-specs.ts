@@ -1,7 +1,7 @@
-import * as xcode from '../../lib/xcode';
 import {fs, util} from '@appium/support';
 import {expect, use} from 'chai';
 import chaiAsPromised from 'chai-as-promised';
+import * as xcode from '../../lib/xcode';
 
 use(chaiAsPromised);
 
@@ -43,10 +43,10 @@ describe('xcode @skip-linux', function () {
   });
 
   describe('getVersion', function () {
-    let versionRE = /\d\.\d\.*\d*/;
+    const versionRE = /\d\.\d\.*\d*/;
 
     it('should get the version of xcode', async function () {
-      const version = await xcode.getVersion();
+      const version = await xcode.getVersion(false);
       expect(version).to.exist;
       expect(version).to.be.a('string');
       expect(versionRE.test(version)).to.be.true;
@@ -54,18 +54,18 @@ describe('xcode @skip-linux', function () {
 
     it('should get the path and version again, these values are cached', async function () {
       await xcode.getPath();
-      await xcode.getVersion();
+      await xcode.getVersion(false);
 
       let before = Number(new Date());
-      const path = await xcode.getPath();
+      const xcodePath = await xcode.getPath();
       let after = Number(new Date());
 
-      expect(path).to.exist;
-      await fs.exists(path);
+      expect(xcodePath).to.exist;
+      await fs.exists(xcodePath);
       expect(after - before).to.be.at.most(2);
 
       before = Number(new Date());
-      const version = await xcode.getVersion();
+      const version = await xcode.getVersion(false);
       after = Number(new Date());
 
       expect(version).to.exist;
@@ -75,7 +75,7 @@ describe('xcode @skip-linux', function () {
     });
 
     it('should get the parsed version', async function () {
-      const nonParsedVersion = await xcode.getVersion();
+      const nonParsedVersion = await xcode.getVersion(false);
       const version = await xcode.getVersion(true);
       expect(version).to.exist;
       expect(version.versionString).to.be.a('string');
@@ -90,7 +90,7 @@ describe('xcode @skip-linux', function () {
   it('should get clang version', async function () {
     const cliVersion = await xcode.getClangVersion();
     expect(cliVersion).to.exist;
-    expect(util.coerceVersion(cliVersion, true)).to.be.a('string');
+    expect(util.coerceVersion(cliVersion!, true)).to.be.a('string');
   });
 
   it('should get max iOS SDK version', async function () {

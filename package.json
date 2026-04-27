@@ -43,8 +43,8 @@
     "format": "prettier -w ./lib ./test",
     "format:check": "prettier --check ./lib ./test",
     "prepare": "npm run build",
-    "test": "mocha --exit --timeout 1m \"./test/unit/**/*-specs.js\"",
-    "e2e-test": "mocha --exit --timeout 5m \"./test/e2e/**/*-specs.js\""
+    "test": "mocha --exit --timeout 1m \"./test/unit/**/*-specs.ts\"",
+    "e2e-test": "mocha --exit --timeout 5m \"./test/e2e/**/*-specs.ts\""
   },
   "prettier": {
     "bracketSpacing": false,

@@ -5,7 +5,7 @@ describe('helpers', function () {
   describe('memoize', function () {
     it('should cache the result for identical arguments', function () {
       let callCount = 0;
-      const add = memoize((a, b) => {
+      const add = memoize((a: number, b: number) => {
         callCount += 1;
         return a + b;
       });
@@ -20,7 +20,7 @@ describe('helpers', function () {
 
     it('should not reuse cache for different arguments', function () {
       let callCount = 0;
-      const add = memoize((a, b) => {
+      const add = memoize((a: number, b: number) => {
         callCount += 1;
         return a + b;
       });
