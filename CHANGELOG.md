@@ -1,3 +1,9 @@
+## [6.2.0](https://github.com/appium/appium-xcode/compare/v6.1.10...v6.2.0) (2026-04-27)
+
+### Features
+
+* Ditch bluebird, lodash and plist ([#173](https://github.com/appium/appium-xcode/issues/173)) ([a7c88ca](https://github.com/appium/appium-xcode/commit/a7c88cac6239694a192eb0525902a28370a5292d))
+
 ## [6.1.10](https://github.com/appium/appium-xcode/compare/v6.1.9...v6.1.10) (2026-04-17)
 
 ### Miscellaneous Chores
