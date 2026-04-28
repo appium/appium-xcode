@@ -1,9 +1,10 @@
 import {fs, logger} from '@appium/support';
 import path from 'node:path';
 import {retry} from 'asyncbox';
+import memoize from 'lodash.memoize';
 import {exec} from 'teen_process';
 import * as semver from 'semver';
-import {runXcrunCommand, findAppPaths, XCRUN_TIMEOUT, readXcodePlist, memoize} from './helpers';
+import {runXcrunCommand, findAppPaths, XCRUN_TIMEOUT, readXcodePlist} from './helpers';
 import type {XcodeVersion} from './types';
 
 const DEFAULT_NUMBER_OF_RETRIES = 2;
