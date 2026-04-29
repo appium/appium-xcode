@@ -1,3 +1,9 @@
+## [6.2.1](https://github.com/appium/appium-xcode/compare/v6.2.0...v6.2.1) (2026-04-29)
+
+### Bug Fixes
+
+* Memoize implementation ([#174](https://github.com/appium/appium-xcode/issues/174)) ([e5e09a5](https://github.com/appium/appium-xcode/commit/e5e09a5a6570f213c47a9318446a5ff7fcea2af9))
+
 ## [6.2.0](https://github.com/appium/appium-xcode/compare/v6.1.10...v6.2.0) (2026-04-27)
 
 ### Features
