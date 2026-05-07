@@ -21,11 +21,10 @@ export async function runXcrunCommand(
     return await exec('xcrun', args, {timeout});
   } catch (err) {
     // the true error can be hidden within the stderr
-    if (err.stderr) {
-      err.message = `${err.message}: ${err.stderr}`;
-    }
-
-    throw err;
+    const stderr =
+      err && typeof err === 'object' && 'stderr' in err ? String((err as {stderr: unknown}).stderr) : '';
+    const message = err instanceof Error ? err.message : String(err);
+    throw new Error(stderr ? `${message}: ${stderr}` : message);
   }
 }
 

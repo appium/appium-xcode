@@ -38,9 +38,12 @@ export async function getPathFromXcodeSelect(timeout: number = XCRUN_TIMEOUT): P
   try {
     ({stdout} = await exec('xcode-select', ['--print-path'], {timeout}));
   } catch (e) {
+    const stderr =
+      e && typeof e === 'object' && 'stderr' in e ? String((e as {stderr: unknown}).stderr) : '';
+    const message = e instanceof Error ? e.message : String(e);
     const msg =
       `Cannot determine the path to Xcode by running 'xcode-select -p' command. ` +
-      `Original error: ${e.stderr || e.message}`;
+      `Original error: ${stderr || message}`;
     throw new Error(msg);
   }
   // trim and remove trailing slash
