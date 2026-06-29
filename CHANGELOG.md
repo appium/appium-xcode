@@ -1,3 +1,5 @@
+## [6.2.4](https://github.com/appium/appium-xcode/compare/v6.2.3...v6.2.4) (2026-06-29)
+
 ## [6.2.3](https://github.com/appium/appium-xcode/compare/v6.2.2...v6.2.3) (2026-06-19)
 
 ### Miscellaneous Chores
