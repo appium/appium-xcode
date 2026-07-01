@@ -1,3 +1,9 @@
+## [6.2.5](https://github.com/appium/appium-xcode/compare/v6.2.4...v6.2.5) (2026-07-01)
+
+### Miscellaneous Chores
+
+* downgrade conventional-changelog-conventionalcommits to v9 ([#179](https://github.com/appium/appium-xcode/issues/179)) ([018e6f5](https://github.com/appium/appium-xcode/commit/018e6f5125bd83bcb0bf3b13b640514d1ea09c7b))
+
 ## [6.2.4](https://github.com/appium/appium-xcode/compare/v6.2.3...v6.2.4) (2026-06-29)
 
 ## [6.2.3](https://github.com/appium/appium-xcode/compare/v6.2.2...v6.2.3) (2026-06-19)
