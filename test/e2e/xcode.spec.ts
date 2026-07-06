@@ -1,18 +1,14 @@
 import {fs, util} from '@appium/support';
-import {expect, use} from 'chai';
-import chaiAsPromised from 'chai-as-promised';
+import assert from 'node:assert/strict';
 import * as xcode from '../../lib/xcode';
+import {describe, it} from 'node:test';
 
-use(chaiAsPromised);
-
-describe('xcode @skip-linux', function () {
-  // on slow machines and busy CI systems these can be slow and flakey
-  this.timeout(30000);
-
+// on slow machines and busy CI systems these can be slow and flakey
+describe('xcode', {timeout: 30000}, function () {
   describe('getPath', function () {
     it('should get the path to xcode from xcode-select', async function () {
       const xcodePath = await xcode.getPathFromXcodeSelect();
-      expect(xcodePath).to.exist;
+      assert.ok(xcodePath);
       await fs.exists(xcodePath);
     });
 
@@ -20,7 +16,7 @@ describe('xcode @skip-linux', function () {
       process.env.DEVELOPER_DIR = await xcode.getPathFromXcodeSelect();
       try {
         const xcodePath = await xcode.getPathFromDeveloperDir();
-        expect(xcodePath).to.exist;
+        assert.ok(xcodePath);
         await fs.exists(xcodePath);
       } finally {
         delete process.env.DEVELOPER_DIR;
@@ -30,7 +26,7 @@ describe('xcode @skip-linux', function () {
     it('should fail if the path to xcode provided in DEVELOPER_DIR is wrong', async function () {
       process.env.DEVELOPER_DIR = 'yolo';
       try {
-        await expect(xcode.getPathFromDeveloperDir()).to.be.rejected;
+        await assert.rejects(() => xcode.getPathFromDeveloperDir());
       } finally {
         delete process.env.DEVELOPER_DIR;
       }
@@ -38,7 +34,7 @@ describe('xcode @skip-linux', function () {
 
     it('should get the path to xcode', async function () {
       const xcodePath = await xcode.getPath();
-      expect(xcodePath).to.eql(await xcode.getPathFromXcodeSelect());
+      assert.strictEqual(xcodePath, await xcode.getPathFromXcodeSelect());
     });
   });
 
@@ -47,9 +43,9 @@ describe('xcode @skip-linux', function () {
 
     it('should get the version of xcode', async function () {
       const version = await xcode.getVersion(false);
-      expect(version).to.exist;
-      expect(version).to.be.a('string');
-      expect(versionRE.test(version)).to.be.true;
+      assert.ok(version);
+      assert.strictEqual(typeof version, 'string');
+      assert.ok(versionRE.test(version));
     });
 
     it('should get the path and version again, these values are cached', async function () {
@@ -60,51 +56,51 @@ describe('xcode @skip-linux', function () {
       const xcodePath = await xcode.getPath();
       let after = Number(new Date());
 
-      expect(xcodePath).to.exist;
+      assert.ok(xcodePath);
       await fs.exists(xcodePath);
-      expect(after - before).to.be.at.most(2);
+      assert.ok(after - before <= 2);
 
       before = Number(new Date());
       const version = await xcode.getVersion(false);
       after = Number(new Date());
 
-      expect(version).to.exist;
-      expect(version).to.be.a('string');
-      expect(versionRE.test(version)).to.be.true;
-      expect(after - before).to.be.at.most(2);
+      assert.ok(version);
+      assert.strictEqual(typeof version, 'string');
+      assert.ok(versionRE.test(version));
+      assert.ok(after - before <= 2);
     });
 
     it('should get the parsed version', async function () {
       const nonParsedVersion = await xcode.getVersion(false);
       const version = await xcode.getVersion(true);
-      expect(version).to.exist;
-      expect(version.versionString).to.be.a('string');
-      expect(version.versionString).to.eql(nonParsedVersion);
+      assert.ok(version);
+      assert.strictEqual(typeof version.versionString, 'string');
+      assert.strictEqual(version.versionString, nonParsedVersion);
 
-      expect(parseFloat(String(version.versionFloat))).to.equal(version.versionFloat);
-      expect(parseInt(String(version.major), 10)).to.equal(version.major);
-      expect(parseInt(String(version.minor), 10)).to.equal(version.minor);
+      assert.strictEqual(parseFloat(String(version.versionFloat)), version.versionFloat);
+      assert.strictEqual(parseInt(String(version.major), 10), version.major);
+      assert.strictEqual(parseInt(String(version.minor), 10), version.minor);
     });
   });
 
   it('should get clang version', async function () {
     const cliVersion = await xcode.getClangVersion();
-    expect(cliVersion).to.exist;
-    expect(util.coerceVersion(cliVersion!, true)).to.be.a('string');
+    assert.ok(cliVersion);
+    assert.strictEqual(typeof util.coerceVersion(cliVersion!, true), 'string');
   });
 
   it('should get max iOS SDK version', async function () {
     const version = await xcode.getMaxIOSSDK();
 
-    expect(version).to.exist;
-    expect(version).to.be.a('string');
-    expect(parseFloat(String(version)) - 6.1).to.be.at.least(0);
+    assert.ok(version);
+    assert.strictEqual(typeof version, 'string');
+    assert.ok(parseFloat(String(version)) - 6.1 >= 0);
   });
 
   it('should get max tvOS SDK version', async function () {
     const version = await xcode.getMaxTVOSSDK();
 
-    expect(version).to.exist;
-    expect(version).to.be.a('string');
+    assert.ok(version);
+    assert.strictEqual(typeof version, 'string');
   });
 });
