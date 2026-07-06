@@ -1,3 +1,9 @@
+## [6.2.6](https://github.com/appium/appium-xcode/compare/v6.2.5...v6.2.6) (2026-07-06)
+
+### Miscellaneous Chores
+
+* Drop mocha and chai ([#181](https://github.com/appium/appium-xcode/issues/181)) ([4380197](https://github.com/appium/appium-xcode/commit/43801977234339c3ea7a03abe44ae244059c3d53))
+
 ## [6.2.5](https://github.com/appium/appium-xcode/compare/v6.2.4...v6.2.5) (2026-07-01)
 
 ### Miscellaneous Chores
