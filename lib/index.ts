@@ -1,4 +1,3 @@
-// transpile:main
 import {getPath, getVersion, getMaxIOSSDK, getMaxTVOSSDK, getClangVersion} from './xcode.js';
 
 const xcode = {
