@@ -3,8 +3,8 @@ import path from 'node:path';
 import {retry} from 'asyncbox';
 import {exec} from 'teen_process';
 import * as semver from 'semver';
-import {runXcrunCommand, findAppPaths, XCRUN_TIMEOUT, readXcodePlist} from './helpers';
-import type {XcodeVersion} from './types';
+import {runXcrunCommand, findAppPaths, XCRUN_TIMEOUT, readXcodePlist} from './helpers.js';
+import type {XcodeVersion} from './types.js';
 
 const DEFAULT_NUMBER_OF_RETRIES = 2;
 const XCODE_BUNDLE_ID = 'com.apple.dt.Xcode';
@@ -44,7 +44,7 @@ export async function getPathFromXcodeSelect(timeout: number = XCRUN_TIMEOUT): P
     const msg =
       `Cannot determine the path to Xcode by running 'xcode-select -p' command. ` +
       `Original error: ${stderr || message}`;
-    throw new Error(msg);
+    throw new Error(msg, {cause: e});
   }
   // trim and remove trailing slash
   const developerRoot = String(stdout).replace(/\/$/, '').trim();

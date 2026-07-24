@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import xcode from '../../lib/index';
+import xcode from '../../lib/index.js';
 import {describe, it} from 'node:test';
 
 describe('index', function () {
