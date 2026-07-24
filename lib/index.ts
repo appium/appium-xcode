@@ -1,5 +1,4 @@
-// transpile:main
-import {getPath, getVersion, getMaxIOSSDK, getMaxTVOSSDK, getClangVersion} from './xcode';
+import {getPath, getVersion, getMaxIOSSDK, getMaxTVOSSDK, getClangVersion} from './xcode.js';
 
 const xcode = {
   getPath,
@@ -12,4 +11,4 @@ const xcode = {
 export {getPath, getVersion, getMaxIOSSDK, getMaxTVOSSDK, getClangVersion};
 export default xcode;
 
-export type {XcodeVersion} from './types';
+export type {XcodeVersion} from './types.js';

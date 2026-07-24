@@ -1,6 +1,6 @@
 import {fs, util} from '@appium/support';
 import assert from 'node:assert/strict';
-import * as xcode from '../../lib/xcode';
+import * as xcode from '../../lib/xcode.js';
 import {describe, it} from 'node:test';
 
 // on slow machines and busy CI systems these can be slow and flakey
