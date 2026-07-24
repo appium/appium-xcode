@@ -1,3 +1,13 @@
+## [7.0.0](https://github.com/appium/appium-xcode/compare/v6.2.6...v7.0.0) (2026-07-24)
+
+### ⚠ BREAKING CHANGES
+
+* Consumers using require('appium-xcode') must switch to import/dynamic import() — the package no longer ships a CommonJS entry point.
+
+### Features
+
+* Migrate the package to ESM ([#188](https://github.com/appium/appium-xcode/issues/188)) ([ea51d54](https://github.com/appium/appium-xcode/commit/ea51d545a3d0f3074e5f2efcc7cab1aa4585419b))
+
 ## [6.2.6](https://github.com/appium/appium-xcode/compare/v6.2.5...v6.2.6) (2026-07-06)
 
 ### Miscellaneous Chores
