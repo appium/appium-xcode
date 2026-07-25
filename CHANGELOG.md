@@ -1,3 +1,9 @@
+## [7.1.0](https://github.com/appium/appium-xcode/compare/v7.0.0...v7.1.0) (2026-07-25)
+
+### Features
+
+* Integrate oxc and release configs ([#190](https://github.com/appium/appium-xcode/issues/190)) ([5328105](https://github.com/appium/appium-xcode/commit/5328105735a4a1ba05c8dcff2557de93dbb79344))
+
 ## [7.0.0](https://github.com/appium/appium-xcode/compare/v6.2.6...v7.0.0) (2026-07-24)
 
 ### ⚠ BREAKING CHANGES
