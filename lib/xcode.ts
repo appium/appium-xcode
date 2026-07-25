@@ -145,7 +145,7 @@ export async function getClangVersion(): Promise<string | null> {
   try {
     await fs.which('clang');
   } catch {
-    log.info('Cannot find clang executable on the local system. ' + 'Are Xcode Command Line Tools installed?');
+    log.info('Cannot find clang executable on the local system. Are Xcode Command Line Tools installed?');
     return null;
   }
   const {stdout} = await exec('clang', ['--version']);
