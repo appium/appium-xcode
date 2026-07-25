@@ -1,7 +1,8 @@
+import path from 'node:path';
+
+import {fs, plist} from '@appium/support';
 import {exec} from 'teen_process';
 import type {TeenProcessExecResult} from 'teen_process';
-import {fs, plist} from '@appium/support';
-import path from 'node:path';
 
 export const XCRUN_TIMEOUT = 15000;
 
@@ -22,10 +23,7 @@ export async function runXcrunCommand(
   } catch (err) {
     if (err instanceof Error) {
       // the true error can be hidden within the stderr
-      const stderr =
-        err && typeof err === 'object' && 'stderr' in err
-          ? String((err as {stderr: unknown}).stderr)
-          : '';
+      const stderr = err && typeof err === 'object' && 'stderr' in err ? String((err as {stderr: unknown}).stderr) : '';
       if (stderr) {
         err.message = `${err.message}: ${stderr}`;
       }
