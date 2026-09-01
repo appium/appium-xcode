@@ -1,3 +1,9 @@
+## [7.1.1](https://github.com/appium/appium-xcode/compare/v7.1.0...v7.1.1) (2026-09-01)
+
+### Miscellaneous Chores
+
+* bump support & other deps ([#191](https://github.com/appium/appium-xcode/issues/191)) ([6b8ff03](https://github.com/appium/appium-xcode/commit/6b8ff03e3d1a4b8be96476875592d3de15720c47))
+
 ## [7.1.0](https://github.com/appium/appium-xcode/compare/v7.0.0...v7.1.0) (2026-07-25)
 
 ### Features
