@@ -92,9 +92,8 @@ export async function getPathFromDeveloperDir(): Promise<string> {
  * @returns Full path to Xcode Developer subfolder timeout
  * @throws {Error} If there was an error while retrieving the path.
  */
-export const getPath = util.memoize(
-  (timeout: number = XCRUN_TIMEOUT): Promise<string> =>
-    process.env.DEVELOPER_DIR ? getPathFromDeveloperDir() : getPathFromXcodeSelect(timeout),
+export const getPath = util.memoize((timeout: number = XCRUN_TIMEOUT): Promise<string> =>
+  process.env.DEVELOPER_DIR ? getPathFromDeveloperDir() : getPathFromXcodeSelect(timeout),
 );
 
 /**
