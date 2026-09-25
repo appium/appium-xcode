@@ -5,6 +5,8 @@ appium-xcode
 
 [![Release](https://github.com/appium/appium-xcode/actions/workflows/publish.js.yml/badge.svg?branch=master)](https://github.com/appium/appium-xcode/actions/workflows/publish.js.yml)
 
+> **This repository has moved.** Development now continues in the [appium-ios monorepo](https://github.com/appium/appium-ios/tree/main/packages/xcode).
+
 ES7 module for interacting with Xcode and Xcode-related functions.
 Used by various [Appium](github.com/appium/appium) drivers.
 
